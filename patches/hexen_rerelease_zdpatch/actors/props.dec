@@ -1,0 +1,106 @@
+actor LushXmasTree : ZXmasTree 3101 {
+    Game Hexen
+
+    PainSound "TreeExplode"
+    DeathSound "TreeBreak"
+
+    States {
+        Spawn:
+            XMS2 A -1
+            Stop
+        Death:
+            XMS2 A 4 A_Scream
+            Stop
+        Burn:
+            XMS2 B 6 bright
+            XMS2 C 6 bright A_Pain
+            XMS2 D 5 bright
+            XMS2 E 5 bright A_Explode(30, 64)
+            XMS2 F 5 bright
+            XMAS G 4 bright
+            XMAS H 5
+            XMAS I 4 A_NoBlocking
+            XMAS J 4
+            XMAS K -1
+            Stop
+    }
+}
+
+actor LushShrub1 : ZShrub1 3102 {
+    Game Hexen
+
+    PainSound "TreeExplode"
+    DeathSound "TreeBreak"
+
+    States {
+        Spawn:
+            SHB3 A -1
+            Stop
+        Death:
+            SHB3 A 1 A_Scream
+            Stop
+        Burn:
+            SHB3 B 7 bright
+            SHB1 C 6 bright A_Pain
+            SHB1 D 5 bright
+            Stop
+    }
+}
+
+actor LushShrub2 : ZShrub2 3103 {
+    Game Hexen
+
+    PainSound "TreeExplode"
+    DeathSound "TreeBreak"
+
+    States {
+        Spawn:
+            SHB4 A -1
+            Stop
+        Death:
+            SHB4 A 1 A_Scream
+            Stop
+        Burn:
+            SHB4 B 7 bright
+            SHB2 C 6 bright A_Pain
+            SHB2 D 5 bright A_Explode(30, 64)
+            SHB2 E 5 bright
+            Stop
+    }
+}
+
+actor HexenChonicle 3104 {
+    Game Hexen
+
+    Radius 20
+    Height 60
+
+    +SOLID
+    +USESPECIAL
+
+    States {
+        Spawn:
+            CRON A 35
+            CRON BCD 5
+            CRON E 35
+            CRON FGH 5
+            CRON I 35
+            CRON JKL 5
+            Loop
+    }
+}
+
+actor BloodFont 3105 {
+    Game Hexen
+
+    Radius 40
+    Height 60
+    
+    +SOLID
+
+    States {
+        Spawn:
+            BLFN ABCD 5
+            Loop
+    }
+}

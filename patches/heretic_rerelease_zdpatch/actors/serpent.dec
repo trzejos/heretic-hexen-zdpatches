@@ -1,0 +1,70 @@
+actor SuperDemon 3103 {
+    Game Heretic
+    Monster
+
+    Radius 32
+    Height 64
+    Speed 13
+    Health 750
+    PainChance 40
+    Mass 500
+    MeleeRange 64
+    DropItem "CrystalVial", 51
+    DropItem "BagOfHolding", 8
+    SeeSound "sbtact"
+    ActiveSound "sbtact"
+    AttackSound "bitey"
+    PainSound "sbtpai"
+    DeathSound "sbtdth"
+
+    States {
+        Spawn:
+            DEMN AA 10 A_Look
+            Loop
+        See:
+            DEMN ABCD 4 A_Chase
+            Loop
+        Melee:
+            DEMN G 6 A_FaceTarget
+            DEMN F 8 A_CustomMeleeAttack(random(8, 8))
+            DEMN E 6 A_FaceTarget
+            goto See
+        Missile:
+            DEMN E 5 A_Jump(144, "MissileB")
+            goto MissileA
+        MissileA:
+            DEMN E 5 A_FaceTarget
+            DEMN F 6 A_FaceTarget
+            DEMN G 5 A_SpawnProjectile("SuperDemonFX1")
+            goto See
+        MissileB:
+            DEMN E 5 A_FaceTarget
+            DEMN F 6 A_FaceTarget
+            DEMN G 8 A_SpawnProjectile("SuperDemonFX1")
+            DEMN E 5 A_FaceTarget
+            DEMN F 8 A_FaceTarget
+            DEMN G 8 A_SpawnProjectile("SuperDemonFX1")
+            DEMN E 5 A_FaceTarget
+            DEMN F 8 A_FaceTarget
+            DEMN G 5 A_SpawnProjectile("SuperDemonFX1")
+            goto See
+        Pain:
+            DEMN E 4
+            DEMN E 4 A_Pain
+            goto See
+        Death:
+            DEMN HI 6
+            DEMN J 6 A_Scream
+            DEMN K 6 A_NoBlocking
+            DEMN LMNO 6
+            DEMN P -1
+            Stop
+    }
+}
+
+actor SuperDemonFX1 : SorcererFX1 {
+    Speed 15
+    Damage 8
+    SeeSound "None"
+    DeathSound "sbthit"
+}

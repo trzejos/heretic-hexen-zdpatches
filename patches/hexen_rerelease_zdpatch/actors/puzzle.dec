@@ -1,0 +1,351 @@
+/* **************** */
+/* PUZZLE ITEMS     */
+/* **************** */
+
+// Dragon Crest
+actor PuzzCrestDragon : PuzzSkull 3117 {
+    Game Hexen
+
+    PuzzleItem.Number 17
+    Inventory.Icon ARTIACRD
+    Inventory.PickupMessage "$TXT_ARTIPUZZCRESTDRAGON"
+    Tag "$TAG_ARTIPUZZCRESTDRAGON"
+
+    States {
+        Spawn:
+            ACRD A -1
+            Stop
+    }
+}
+
+// Wolf Crest
+actor PuzzCrestWolf : PuzzSkull 3118 {
+    Game Hexen
+
+    PuzzleItem.Number 18
+    Inventory.Icon ARTIACRW
+    Inventory.PickupMessage "$TXT_ARTIPUZZCRESTWOLF"
+    Tag "$TAG_ARTIPUZZCRESTWOLF"
+
+    States {
+        Spawn:
+            ACRW A -1
+            Stop
+    }
+}
+
+// Griffin Crest
+actor PuzzCrestGriffin : PuzzSkull 3119 {
+    Game Hexen
+
+    PuzzleItem.Number 19
+    Inventory.Icon ARTIACRG
+    Inventory.PickupMessage "$TXT_ARTIPUZZCRESTGRIFFIN"
+    Tag "$TAG_ARTIPUZZCRESTGRIFFIN"
+
+    States {
+        Spawn:
+            ACRG A -1
+            Stop
+    }
+}
+
+// Death Mask
+actor PuzzMaskIce : PuzzSkull 3120 {
+    Game Hexen
+
+    PuzzleItem.Number 20
+    Inventory.Icon ARTIAMSI
+    Inventory.PickupMessage "$TXT_ARTIPUZZMASKICE"
+    Tag "$TAG_ARTIPUZZMASKICE"
+
+    States {
+        Spawn:
+            AMSI A -1
+            Stop
+    }
+}
+
+// Fetid Mask
+actor PuzzMaskSwamp : PuzzSkull 3121 {
+    Game Hexen
+
+    PuzzleItem.Number 21
+    Inventory.Icon ARTIAMSS
+    Inventory.PickupMessage "$TXT_ARTIPUZZMASKSWAMP"
+    Tag "$TAG_ARTIPUZZMASKSWAMP"
+
+    States {
+        Spawn:
+            AMSS A -1
+            Stop
+    }
+}
+
+// Coiled Chalice
+actor PuzzChalice1 : PuzzSkull 3122 {
+    Game Hexen
+
+    PuzzleItem.Number 22
+    Inventory.Icon ARTIACH1
+    Inventory.PickupMessage "$TXT_ARTIPUZZCHALICE1"
+    Tag "$TAG_ARTIPUZZCHALICE1"
+
+    States {
+        Spawn:
+            ACH1 A -1
+            Stop
+    }
+}
+
+// Gilded Chalice
+actor PuzzChalice2 : PuzzSkull 3123 {
+    Game Hexen
+
+    PuzzleItem.Number 23
+    Inventory.Icon ARTIACH2
+    Inventory.PickupMessage "$TXT_ARTIPUZZCHALICE2"
+    Tag "$TAG_ARTIPUZZCHALICE2"
+
+    States {
+        Spawn:
+            ACH2 A -1
+            Stop
+    }
+}
+
+// Earthen Chalice
+actor PuzzChalice3 : PuzzSkull 3124 {
+    Game Hexen
+
+    PuzzleItem.Number 24
+    Inventory.Icon ARTIACH3
+    Inventory.PickupMessage "$TXT_ARTIPUZZCHALICE3"
+    Tag "$TAG_ARTIPUZZCHALICE3"
+
+    States {
+        Spawn:
+            ACH3 A -1
+            Stop
+    }
+}
+
+// Molten Chalice
+actor PuzzChalice4 : PuzzSkull 3125 {
+    Game Hexen
+
+    PuzzleItem.Number 25
+    Inventory.Icon ARTIACH4
+    Inventory.PickupMessage "$TXT_ARTIPUZZCHALICE4"
+    Tag "$TAG_ARTIPUZZCHALICE4"
+
+    States {
+        Spawn:
+            ACH4 A -1
+            Stop
+    }
+}
+
+// Rimed Chalice
+actor PuzzChalice5 : PuzzSkull 3126 {
+    Game Hexen
+
+    PuzzleItem.Number 26
+    Inventory.Icon ARTIACH5
+    Inventory.PickupMessage "$TXT_ARTIPUZZCHALICE5"
+    Tag "$TAG_ARTIPUZZCHALICE5"
+
+    States {
+        Spawn:
+            ACH5 A -1
+            Stop
+    }
+}
+
+// Skull Idol
+actor PuzzIdol1 : PuzzSkull 3127 {
+    Game Hexen
+
+    PuzzleItem.Number 27
+    Inventory.Icon ARTIAID1
+    Inventory.PickupMessage "$TXT_ARTIPUZZIDOL1"
+    Tag "$TAG_ARTIPUZZIDOL1"
+
+    States {
+        Spawn:
+            AID1 A -1
+            Stop
+    }
+}
+
+// Demon Idol
+actor PuzzIdol2 : PuzzSkull 3128 {
+    Game Hexen
+
+    PuzzleItem.Number 28
+    Inventory.Icon ARTIAID1
+    Inventory.PickupMessage "$TXT_ARTIPUZZIDOL2"
+    Tag "$TAG_ARTIPUZZIDOL2"
+
+    States {
+        Spawn:
+            AID2 A -1
+            Stop
+    }
+}
+
+// Dragon Idol
+actor PuzzIdol3 : PuzzSkull 3129 {
+    Game Hexen
+
+    PuzzleItem.Number 29
+    Inventory.Icon ARTIAID3
+    Inventory.PickupMessage "$TXT_ARTIPUZZIDOL3"
+    Tag "$TAG_ARTIPUZZIDOL3"
+
+    States {
+        Spawn:
+            AID3 A -1
+            Stop
+    }
+}
+
+// Lurid Atlas
+actor PuzzBook3 : PuzzSkull 3130 {
+    Game Hexen
+
+    PuzzleItem.Number 30
+    Inventory.Icon ARTIBOK3
+    Inventory.PickupMessage "$TXT_ARTIPUZZBOOK3"
+    Tag "$TAG_ARTIPUZZBOOK3"
+
+    States {
+        Spawn:
+            ABK3 A -1
+            Stop
+    }
+}
+
+// Malum Vulgata
+actor PuzzBook4 : PuzzSkull 3131 {
+    Game Hexen
+
+    PuzzleItem.Number 31
+    Inventory.Icon ARTIBOK4
+    Inventory.PickupMessage "$TXT_ARTIPUZZBOOK4"
+    Tag "$TAG_ARTIPUZZBOOK4"
+
+    States {
+        Spawn:
+            ABK4 A -1
+            Stop
+    }
+}
+
+// Chalice Pedestals
+actor PedestalChalice1 : SwitchingDecoration 3222 {
+    Game Hexen
+
+    Radius 12
+    Height 24
+
+    States {
+        Spawn:
+            PCH1 A -1
+            Stop
+        Active:
+            PCH1 B -1
+            Stop
+    }
+}
+
+actor PedestalChalice2 : PedestalChalice1 3223 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PCH2 A -1
+            Stop
+        Active:
+            PCH2 B -1
+            Stop
+    }
+}
+
+actor PedestalChalice3 : PedestalChalice1 3224 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PCH3 A -1
+            Stop
+        Active:
+            PCH3 B -1
+            Stop
+    }
+}
+
+actor PedestalChalice4 : PedestalChalice1 3225 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PCH4 A -1
+            Stop
+        Active:
+            PCH4 B -1
+            Stop
+    }
+}
+
+actor PedestalChalice5 : PedestalChalice1 3226 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PCH5 A -1
+            Stop
+        Active:
+            PCH5 B -1
+            Stop
+    }
+}
+
+actor PedestalIdol1 : ZGemPedestal 3227 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PID1 A -1
+            Stop
+        Active:
+            PID1 B -1
+            Stop
+    }
+}
+
+actor PedestalIdol2 : ZGemPedestal 3228 {
+    Game Hexen
+
+    States {
+        Spawn:
+            PID2 A -1
+            Stop
+        Active:
+            PID2 B -1
+            Stop
+    }
+}
+
+actor PedestalIdol3 : ZGemPedestal 3229 {
+    Game Hexen
+    
+    States {
+        Spawn:
+            PID3 A -1
+            Stop
+        Active:
+            PID3 B -1
+            Stop
+    }
+}

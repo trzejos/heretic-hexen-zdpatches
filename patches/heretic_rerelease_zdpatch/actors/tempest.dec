@@ -1,0 +1,101 @@
+actor TempestWand : Blaster 3104 {
+    Game Heretic
+
+    Weapon.AmmoType "GoldWandAmmo"
+    Weapon.AmmoUse 5
+    Weapon.SisterWeapon "TempestWandPowered"
+    Inventory.PickupMessage "$TXT_WPNTEMPESTWAND"
+    Tag "$TAG_MPTEMPESTWAND"
+    Obituary "$OB_MPTEMPESTWAND"
+
+    States {
+        Spawn:
+        Select:
+        Deselect:
+        Ready:
+        Fire:
+        Hold:
+    }
+}
+
+actor TempestWandPowered : TempestWand {
+    Weapon.AmmoUse 25
+    
+    States {
+        Select:
+        Deselect:
+        Ready:
+        Fire:
+        Hold:
+    }
+}
+
+actor TempestWandTrail {
+    Radius 8
+    Height 8
+    
+    +NOBLOCKMAP
+    +NOGRAVITY
+
+    States {
+        Spawn:
+    }
+}
+
+actor TempestWandPuff1 {
+    Radius 20
+    Height 16
+
+    +NOBLOCKMAP
+    +NOGRAVITY
+
+    States {
+        Spawn:
+    }
+}
+
+actor TempestWandPuff2 : TempestWandPuff1 {
+    Radius 20
+    Height 16
+
+    +NOBLOCKMAP
+    +NOGRAVITY
+
+    States {
+        Spawn:
+    }
+}
+
+actor TempestWandPuff3 : TempestWandPuff1 {
+    Radius 20
+    Height 16
+
+    +NOBLOCKMAP
+    +NOGRAVITY
+
+    States {
+        Spawn:
+    }
+}
+
+actor TempestWandBomb {
+    Projectile
+
+    +RIPPER
+    +FULLVOLSEE
+    +FULLVOLDEATH
+    +FULLVOLACTIVE
+
+    Damage 1
+    Speed 15
+    Radius 12
+    Height 8
+    ReactionTime 3
+    SeeSound "swnpow"
+    DeathSound "swnhit"
+
+    States {
+        Spawn:
+        Death:
+    }
+}

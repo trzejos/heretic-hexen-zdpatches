@@ -1,0 +1,5 @@
+// Hexen actors
+#include "actors/puzzle.dec"
+#include "actors/props.dec"
+#include "actors/misc.dec"
+#include "actors/mark.dec"

@@ -1,0 +1,9 @@
+actor MapMarkerGeneric : MapMarker 3200 {
+    Game Hexen
+    
+    States {
+        Spawn:
+            MARK A -1
+            Stop
+    }
+}

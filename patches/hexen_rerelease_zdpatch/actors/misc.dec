@@ -1,0 +1,1 @@
+actor TelOtherSpot : TeleportDest 3300 {}
