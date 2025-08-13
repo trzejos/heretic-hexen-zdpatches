@@ -1,4 +1,4 @@
-# [Heretic + Hexen (2025) Patches for GZDoom]
+# Heretic + Hexen (2025) Patches for GZDoom
 
 ## What This Is
 
