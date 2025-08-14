@@ -1,5 +1,0 @@
-// Heretic actors
-// #include "actors/draugr.dec"
-// #include "actors/troll.dec"
-// #include "actors/serpent.dec"
-// #include "actors/tempest.dec"

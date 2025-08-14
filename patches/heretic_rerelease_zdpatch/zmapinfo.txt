@@ -1,0 +1,3 @@
+DoomEdNums {
+    3101 = Draugr
+}

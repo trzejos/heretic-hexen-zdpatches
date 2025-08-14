@@ -1,0 +1,5 @@
+mum2sit = MUM2SIT
+mum2pai = MUM2PAI
+mum2dth = MUM2DTH
+mum2atk = MUM2ATK
+maghit = MAGHIT
