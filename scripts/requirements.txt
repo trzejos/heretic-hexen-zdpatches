@@ -1,0 +1,5 @@
+click==8.2.1
+pillow==11.3.0
+omgifol==0.5.1
+PyYAML==6.0.2
+deepmerge==2.0

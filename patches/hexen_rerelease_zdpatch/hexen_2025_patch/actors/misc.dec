@@ -1,0 +1,4 @@
+actor TelOtherSpot : TeleportDest {
+    //$Title "Teleport Other Spot"
+    //$Category "Teleports"
+}

@@ -1,6 +1,6 @@
-actor LushXmasTree : ZXmasTree 3101 {
-    Game Hexen
-
+actor LushXmasTree : ZXmasTree {
+    //$Title "Lush Evergreen Tree"
+    //$Category "Obstacles"
     PainSound "TreeExplode"
     DeathSound "TreeBreak"
 
@@ -26,9 +26,9 @@ actor LushXmasTree : ZXmasTree 3101 {
     }
 }
 
-actor LushShrub1 : ZShrub1 3102 {
-    Game Hexen
-
+actor LushShrub1 : ZShrub1 {
+    //$Title "Lush Shrub"
+    //$Category "Decoration"
     PainSound "TreeExplode"
     DeathSound "TreeBreak"
 
@@ -47,9 +47,9 @@ actor LushShrub1 : ZShrub1 3102 {
     }
 }
 
-actor LushShrub2 : ZShrub2 3103 {
-    Game Hexen
-
+actor LushShrub2 : ZShrub2 {
+    //$Title "Lush Shrub 2"
+    //$Category "Decoration"
     PainSound "TreeExplode"
     DeathSound "TreeBreak"
 
@@ -69,9 +69,9 @@ actor LushShrub2 : ZShrub2 3103 {
     }
 }
 
-actor HexenChonicle 3104 {
-    Game Hexen
-
+actor HexenChronicle {
+    //$Title "Chronicle"
+    //$Category "Obstacles"
     Radius 20
     Height 60
 
@@ -90,9 +90,9 @@ actor HexenChonicle 3104 {
     }
 }
 
-actor BloodFont 3105 {
-    Game Hexen
-
+actor BloodFont {
+    //$Title "Blood Font"
+    //$Category "Obstacles"
     Radius 40
     Height 60
     

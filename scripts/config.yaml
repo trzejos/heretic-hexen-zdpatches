@@ -1,0 +1,35 @@
+---
+hexen.wad:
+  raw_graphics:
+    CREDIT: PLAYPAL
+    FINALE1: PLAYPAL
+    FINALE2: PLAYPAL
+    FINALE3: PLAYPAL
+    HELP1: PLAYPAL
+    HELP2: PLAYPAL
+    INTERPIC: PLAYPAL
+    TITLE: PLAYPAL
+heretic.wad:
+  raw_graphics:
+    CREDIT: PLAYPAL
+    E2END: E2PAL
+    FINAL1: PLAYPAL
+    FINAL2: PLAYPAL
+    HELP1: PLAYPAL
+    HELP2: PLAYPAL
+    TITLE: PLAYPAL
+    TITLE2: PLAYPAL
+hexen_vog.wad:
+  raw_graphics:
+    CREDIT: PLAYPAL
+    TITLE: PLAYPAL
+hexdd.wad:
+  raw_graphics:
+    CREDIT: PLAYPAL
+    HELP1: PLAYPAL
+    HELP2: PLAYPAL
+    TITLE: PLAYPAL
+heretic_fr.wad:
+  raw_graphics:
+    CREDIT: PLAYPAL
+    TITLE: PLAYPAL
