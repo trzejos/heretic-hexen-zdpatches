@@ -1,19 +1,15 @@
 actor LushXmasTree : ZXmasTree {
     //$Title "Lush Evergreen Tree"
     //$Category "Obstacles"
-    PainSound "TreeExplode"
-    DeathSound "TreeBreak"
+    DeathSound "TreeExplode"
 
     States {
         Spawn:
             XMS2 A -1
             Stop
-        Death:
-            XMS2 A 4 A_Scream
-            Stop
         Burn:
             XMS2 B 6 bright
-            XMS2 C 6 bright A_Pain
+            XMS2 C 6 bright A_Scream
             XMS2 D 5 bright
             XMS2 E 5 bright A_Explode(30, 64)
             XMS2 F 5 bright
@@ -29,19 +25,15 @@ actor LushXmasTree : ZXmasTree {
 actor LushShrub1 : ZShrub1 {
     //$Title "Lush Shrub"
     //$Category "Decoration"
-    PainSound "TreeExplode"
-    DeathSound "TreeBreak"
+    DeathSound "TreeExplode"
 
     States {
         Spawn:
             SHB3 A -1
             Stop
-        Death:
-            SHB3 A 1 A_Scream
-            Stop
         Burn:
             SHB3 B 7 bright
-            SHB1 C 6 bright A_Pain
+            SHB1 C 6 bright A_Scream
             SHB1 D 5 bright
             Stop
     }
@@ -50,19 +42,15 @@ actor LushShrub1 : ZShrub1 {
 actor LushShrub2 : ZShrub2 {
     //$Title "Lush Shrub 2"
     //$Category "Decoration"
-    PainSound "TreeExplode"
-    DeathSound "TreeBreak"
+    DeathSound "TreeExplode"
 
     States {
         Spawn:
             SHB4 A -1
             Stop
-        Death:
-            SHB4 A 1 A_Scream
-            Stop
         Burn:
             SHB4 B 7 bright
-            SHB2 C 6 bright A_Pain
+            SHB2 C 6 bright A_Scream
             SHB2 D 5 bright A_Explode(30, 64)
             SHB2 E 5 bright
             Stop
