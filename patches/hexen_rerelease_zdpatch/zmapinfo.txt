@@ -1,4 +1,6 @@
 DoomEdNums {
+    112 = LittleFly
+
     // Decorations
     3101 = LushXmasTree
     3102 = LushShrub1
