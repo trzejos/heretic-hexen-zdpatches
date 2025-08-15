@@ -21,3 +21,9 @@ sbthit = SBTHIT
 bitey = BITEY
 
 // Tempest Wand
+swnfir = SWNFIR
+swnmis = SWNMIS
+swnhit = SWNHIT
+swnchg = SWNCHG
+swnpow = SWNPOW
+swnzap = SWNZAP

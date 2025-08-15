@@ -1,5 +1,9 @@
 DoomEdNums {
+    // Monsters
     3101 = Draugr
     3102 = Troll
     3103 = SuperDemon
+
+    // Weapons
+    3104 = TempestWand
 }

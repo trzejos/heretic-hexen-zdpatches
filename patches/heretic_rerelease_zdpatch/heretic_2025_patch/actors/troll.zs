@@ -1,4 +1,4 @@
-class Troll {
+class Troll : Actor {
     Default {
         Tag "$FN_TROLL";
         Health 500;
@@ -52,15 +52,15 @@ class Troll {
             TROL H 8 A_ClinkAttackEX("trohit", 96, 10, 20);
             goto See;
         Pain:
-            TROL F 2
-            TROL F 2 A_Pain
-            goto See
+            TROL F 2;
+            TROL F 2 A_Pain;
+            goto See;
         Death:
-            TROL I 6
-            TROL I 6 A_Scream
-            TROL JK 8
-            TROL L 8 A_NoBlocking
-            TROL M -1
-            Stop
+            TROL I 6;
+            TROL I 6 A_Scream;
+            TROL JK 8;
+            TROL L 8 A_NoBlocking;
+            TROL M -1;
+            Stop;
     }
 }
