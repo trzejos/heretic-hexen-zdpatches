@@ -6,6 +6,12 @@ mum2atk = MUM2ATK
 maghit = MAGHIT
 
 // Troll
+trosit = TROSIT
+troswg = TROSWG
+tropai = TROPAI
+trodth = TRODTH
+trochg = TROCHG
+trohit = TROHIT
 
 // Chaos Serpent
 sbtact = SBTACT
