@@ -1,3 +1,4 @@
 DoomEdNums {
     3101 = Draugr
+    3103 = SuperDemon
 }

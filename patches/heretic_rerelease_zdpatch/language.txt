@@ -1,2 +1,4 @@
 [default]
 FN_MUMMY2 = "Draugr";
+FN_TROLL = "Troll";
+FN_SUPERDEMON = "Chaos Serpent";
