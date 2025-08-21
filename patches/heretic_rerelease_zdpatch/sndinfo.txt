@@ -7,23 +7,25 @@ maghit = MAGHIT
 
 // Troll
 trosit = TROSIT
-troswg = TROSWG
 tropai = TROPAI
 trodth = TRODTH
+trodt2 = TRODT2
 trochg = TROCHG
+troswg = TROSWG
 trohit = TROHIT
 
 // Chaos Serpent
 sbtact = SBTACT
 sbtpai = SBTPAI
 sbtdth = SBTDTH
-sbthit = SBTHIT
+sbthit = PHOHIT
+sbtatk = BSTAT2
 bitey = BITEY
 
 // Tempest Wand
 swnfir = SWNFIR
-swnmis = SWNMIS
-swnhit = SWNHIT
 swnchg = SWNCHG
 swnpow = SWNPOW
-swnzap = SWNZAP
+swnhit = GNTUSE
+swnmis = GNTHIT
+swnzap = GNTHIT

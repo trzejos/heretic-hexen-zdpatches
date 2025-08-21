@@ -19,13 +19,19 @@ class SuperDemon : Actor {
         ActiveSound "sbtact";
     }
 
-    //A_CustomMissile("Demon1FX1", 62, 0)
-
+    // 3 Fireball attack, called 1 time per sequence
     void A_SuperDemonAttack1(class<Actor> cls) {
-        A_CustomMissile(cls, 62, 0);
+        A_CustomMissile(cls, 62, 0, 0);
+        A_CustomMissile(cls, 62, 0, -4.5);
+        A_CustomMissile(cls, 62, 0, 4.5);
+        A_StartSound("sbtatk");
     }
-    void A_SuperDemonAttack2(class<Actor> cls, double a, double b, double c, double d) {
-        A_CustomMissile(cls, 62, 0);
+
+    // 2 Fireball attack, called 3 times per sequence
+    void A_SuperDemonAttack2(class<Actor> cls, double min1, double max1, double min2, double max2) {
+        A_CustomMissile(cls, 62, 0, frandom(min1, max1));
+        A_CustomMissile(cls, 62, 0, frandom(min2, max2));
+        A_StartSound("sbtatk");
     }
 
     States {
@@ -77,7 +83,6 @@ class SuperDemonFX1 : SorcererFX1 {
     Default {
         Speed 15;
         Damage 8;
-        SeeSound "";
         DeathSound "sbthit";
     }
 }
