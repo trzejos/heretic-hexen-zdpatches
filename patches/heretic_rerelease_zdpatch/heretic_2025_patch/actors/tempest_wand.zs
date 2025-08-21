@@ -3,6 +3,7 @@ class TempestWand : Blaster {
         Weapon.AmmoType "GoldWandAmmo";
         Weapon.AmmoUse 5;
         Weapon.SisterWeapon "TempestWandPowered";
+        Weapon.SlotNumber 2;
         Inventory.PickupMessage "$TXT_WPNTEMPESTWAND";
         Tag "$TAG_WPNTEMPESTWAND";
         Obituary "$OB_MPTEMPESTWAND";
@@ -38,7 +39,9 @@ class TempestWand : Blaster {
 
 class TempestWandPowered : TempestWand {
     Default {
+        Weapon.SisterWeapon "TempestWand";
         Weapon.AmmoUse 25;
+        +WEAPON.POWERED_UP;
     }
     
     States {
@@ -50,6 +53,8 @@ class TempestWandPowered : TempestWand {
             SWND C 5 Bright;
             SWND B 5 Bright A_ReFire;
             goto Ready;
+        Hold:
+            goto Fire;
     }
 }
 
