@@ -1,4 +1,4 @@
-class TempestWand : Blaster {
+class TempestWand : HereticWeapon {
     Default {
         Weapon.AmmoType "GoldWandAmmo";
         Weapon.AmmoUse 5;
@@ -7,6 +7,8 @@ class TempestWand : Blaster {
         Inventory.PickupMessage "$TXT_WPNTEMPESTWAND";
         Tag "$TAG_WPNTEMPESTWAND";
         Obituary "$OB_MPTEMPESTWAND";
+
+        +BLOODSPLATTER;
     }
 
     action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
@@ -41,6 +43,7 @@ class TempestWandPowered : TempestWand {
     Default {
         Weapon.SisterWeapon "TempestWand";
         Weapon.AmmoUse 25;
+
         +WEAPON.POWERED_UP;
     }
     
@@ -126,6 +129,7 @@ class TempestWandBomb : Actor {
         DeathSound "swnhit";
         
         +RIPPER;
+        +WINDTHRUST;
         +FULLVOLSEE;
         +FULLVOLDEATH;
         +FULLVOLACTIVE;
