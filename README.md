@@ -11,3 +11,5 @@ Heretic have some code pointers that don't directly translate to GZDoom, so some
 
 The raw graphics in the rerelease wads are 560x200. The convert.py script can convert them, but I haven't
 tested this on a wide range of systems.
+
+The Draugr, Chaos Serpent, and Troll behavior is based off of inspection of the EXDEFS configuration in heretic.wad, MBF21 action function documentation, and observing behavior in the official port. Some things may be slightly off, but should be close.
