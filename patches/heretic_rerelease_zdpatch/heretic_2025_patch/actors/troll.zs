@@ -19,20 +19,42 @@ class Troll : Actor {
         +FLOORCLIP;
     }
 
-    void A_TrollChargeStart(double a, double b, String sound) {
+    void A_TrollChargeStart(double speed, int duration, String sound) {
+        if (!target) {
+            return;
+        }
+
         A_StartSound(sound);
+        bSkullFly = true;
+        A_FaceTarget();
+        VelFromAngle(speed);
+        special1 = duration;
     }
 
     void A_TrollCharge() {
+        if (!target) {
+            return;
+        }
 
+        if (special1 > 0) {
+            special1--;
+        } else {
+            bSkullFly = false;
+            SetStateLabel("See");
+        }
     }
 
-    void A_ClinkRushEX(double x) {
-
+    void A_ClinkRushEX(double speed) {
+        A_FaceTarget();
+        VelFromAngle(speed);
     }
 
-    void A_ClinkAttackEX(String sound, double a, double b, double c) {
-
+    void A_ClinkAttackEX(String hitsound, double range, int min, int max) {
+        A_FaceTarget();
+        int oldRange = MeleeRange;
+        MeleeRange = range;
+        A_CustomMeleeAttack(random(min, max), hitsound);
+        MeleeRange = oldRange;
     }
     
     States {
