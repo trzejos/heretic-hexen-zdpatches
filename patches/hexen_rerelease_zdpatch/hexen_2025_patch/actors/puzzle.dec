@@ -171,7 +171,7 @@ actor PuzzIdol2 : PuzzSkull {
     //$Title "Demon Idol"
     //$Category "Puzzle Items"
     PuzzleItem.Number 28
-    Inventory.Icon ARTIAID1
+    Inventory.Icon ARTIAID2
     Inventory.PickupMessage "$TXT_ARTIPUZZIDOL2"
     Tag "$TAG_ARTIPUZZIDOL2"
 

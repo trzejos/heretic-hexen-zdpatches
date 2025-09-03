@@ -12,7 +12,9 @@ class TempestWand : HereticWeapon {
     }
 
     action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
-    action void A_ConsumeAmmo() {}
+    action void A_ConsumeAmmo() {
+        DepleteAmmo(false, false)
+    }
 
     States {
         Spawn:
@@ -34,8 +36,6 @@ class TempestWand : HereticWeapon {
             SWND BAA 6;
             SWND A 0 A_ReFire;
             goto Ready;
-        Hold:
-            goto Fire;
     }
 }
 
@@ -56,8 +56,6 @@ class TempestWandPowered : TempestWand {
             SWND C 5 Bright;
             SWND B 5 Bright A_ReFire;
             goto Ready;
-        Hold:
-            goto Fire;
     }
 }
 
