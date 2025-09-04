@@ -13,7 +13,7 @@ class TempestWand : HereticWeapon {
 
     action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
     action void A_ConsumeAmmo() {
-        DepleteAmmo(false, false)
+        DepleteAmmo(false, false);
     }
 
     States {
