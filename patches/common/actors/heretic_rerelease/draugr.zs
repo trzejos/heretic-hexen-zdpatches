@@ -28,7 +28,7 @@ class Draugr : Actor {
         Missile:
             MUM2 E 5 A_FaceTarget;
             MUM2 F 5 bright A_FaceTarget;
-            MUM2 G 10 bright A_SpawnProjectile("DraugrFX1");
+            MUM2 G 10 bright MBF21_MonsterProjectile("DraugrFX1", 0, 0, 0, 0);
             goto See;
         Pain:
             MUM2 E 2;
@@ -60,7 +60,7 @@ class DraugrFX1 : Actor {
 
     States {
         Spawn:
-            PSKL A 5 Bright; // A_StartSound("mum2atk");
+            PSKL A 5 Bright;
             PSKL BCB 5 Bright;
             Loop;
         Death:

@@ -11,10 +11,8 @@ class TempestWand : HereticWeapon {
         +BLOODSPLATTER;
     }
 
+    // TODO: Implement A_FireTempestWandPL1
     action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
-    action void A_ConsumeAmmo() {
-        //DepleteAmmo(false, false);
-    }
 
     States {
         Spawn:
@@ -51,8 +49,8 @@ class TempestWandPowered : TempestWand {
         Fire:
             SWND A 10 Bright A_PlayWeaponSound("swnchg");
             SWND BCDE 5 Bright;
-            SWND E 5 Bright A_ConsumeAmmo;
-            SWND F 5 Bright A_FireProjectile("TempestWandBomb", 0, false);
+            SWND E 5 Bright MBF21_ConsumeAmmo(0);
+            SWND F 5 Bright MBF21_WeaponProjectile("TempestWandBomb", 0, 0, 0, 0);
             SWND C 5 Bright;
             SWND B 5 Bright A_ReFire;
             goto Ready;
@@ -85,6 +83,7 @@ class TempestWandPuff : Actor {
         +PUFFONACTORS;
     }
 
+    // TODO: Implement A_TempestChain
     void A_TempestChain(double a, double b, double c, double d, String sound, class<Actor> trailtype, double x, double y) {}
 }
 
@@ -114,13 +113,14 @@ class TempestWandPuff3 : TempestWandPuff {
     }
 }
 
-class TempestWandBomb : Actor {
+class TempestWandBomb : Sorcerer2FX1 {
     Default {
-        Damage 1;
         Speed 15;
+        FastSpeed 15;
         Radius 12;
         Height 8;
         ReactionTime 3;
+        RenderStyle "Normal";
         Projectile;
 
         SeeSound "swnpow";
@@ -131,10 +131,15 @@ class TempestWandBomb : Actor {
         +FULLVOLSEE;
         +FULLVOLDEATH;
         +FULLVOLACTIVE;
+        +ACTIVATEIMPACT;
+        +ACTIVATEPCROSS;
+        -ZDOOMTRANS;
     }
 
+    // TODO: Implement A_TempestSpray
     void A_TempestSpray(double a, double b, double c, double d, double e, class<Actor> pufftype, class<Actor> trailtype) {}
-    void A_BlueSpark () {}
+
+    // TODO: Implement A_MissileCountdown
     void A_MissileCountdown() {}
 
     States {
