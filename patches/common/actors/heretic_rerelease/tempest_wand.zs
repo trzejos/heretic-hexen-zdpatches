@@ -12,6 +12,7 @@ class TempestWand : HereticWeapon {
     }
 
     // TODO: Implement A_FireTempestWandPL1
+    // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
     action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
 
     States {
@@ -84,6 +85,7 @@ class TempestWandPuff : Actor {
     }
 
     // TODO: Implement A_TempestChain
+    // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
     void A_TempestChain(double a, double b, double c, double d, String sound, class<Actor> trailtype, double x, double y) {}
 }
 
@@ -137,15 +139,13 @@ class TempestWandBomb : Sorcerer2FX1 {
     }
 
     // TODO: Implement A_TempestSpray
+    // A_TempestSpray(360, 1024, 60, 80, 120, "TempestWandPuff3", "TempestWandTrail");
     void A_TempestSpray(double a, double b, double c, double d, double e, class<Actor> pufftype, class<Actor> trailtype) {}
-
-    // TODO: Implement A_MissileCountdown
-    void A_MissileCountdown() {}
 
     States {
         Spawn:
             FX16 ABC 3 Bright A_BlueSpark;
-            FX16 C 0 Bright A_MissileCountdown;
+            FX16 C 0 Bright A_Countdown;
             Loop;
         Death:
             SWFX A 5 Bright;

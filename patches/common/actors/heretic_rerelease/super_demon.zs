@@ -17,7 +17,6 @@ class SuperDemon : Actor {
         PainSound "sbtpai";
         DeathSound "sbtdth";
         ActiveSound "sbtact";
-        MeleeSound "bitey";
     }
 
     // 3 Fireball attack, called 1 time per sequence
@@ -44,7 +43,8 @@ class SuperDemon : Actor {
             Loop;
         Melee:
             DEMN G 6 A_FaceTarget;
-            DEMN F 8 MBF21_MonsterMeleeAttack(8, 8, "None", 96);
+            DEMN F 0 A_StartSound("bitey");
+            DEMN F 8 MBF21_MonsterMeleeAttack(8, 8, "", 96);
             DEMN E 6 A_FaceTarget;
             goto See;
         Missile:
