@@ -1,0 +1,14 @@
+#library "classmenu"
+#include "zcommon.acs"
+
+script 27000 (int classnum) {
+    if (classnum == 0) {
+        Print(s:"Show Class Selection Menu");
+    } else if (classnum == 1) {
+        Print(s:"Change Class to: Fighter");
+    } else if (classnum == 2) {
+        Print(s:"Change Class to: Cleric");
+    } else if (classnum == 3) {
+        Print(s:"Change Class to: Mage");
+    }
+}
