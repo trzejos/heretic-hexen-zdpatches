@@ -1,4 +1,10 @@
-[default]
+[enu default]
+FN_MUMMY2 = "Draugr";
+FN_TROLL = "Troll";
+FN_SUPERDEMON = "Chaos Serpent";
+TAG_WPNTEMPESTWAND = "Tempest Wand";
+TXT_WPNTEMPESTWAND = "$$TAG_WPNTEMPESTWAND";
+
 TAG_ARTIPUZZCRESTDRAGON = "Dragon Crest";
 TAG_ARTIPUZZCRESTWOLF = "Wolf Crest";
 TAG_ARTIPUZZCRESTGRIFFIN = "Griffin Crest";

@@ -1,3 +1,0 @@
-#include "hexen_2025_patch/actors/puzzle.dec"
-#include "hexen_2025_patch/actors/props.dec"
-#include "hexen_2025_patch/actors/miscellaneous.dec"
