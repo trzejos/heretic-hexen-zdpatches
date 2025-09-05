@@ -100,48 +100,66 @@ class TempestWandPuff : Actor {
         +PUFFGETSOWNER;
     }
 
+    // Return true if mo is the shooter or one of the chain targets
+    bool CheckTargets(Actor mo) {
+        // Start at this puff
+        Actor puff = self;
+        while(puff) {
+            if (mo == puff.tracer)
+                return true;
+            // Check previous puff
+            puff = puff.target;
+            if (!TempestWandPuff(puff))
+                // If the target isn't a puff, it must be the player who initiated the attack
+                return mo == puff;
+        }
+        return false;
+    }
+
     // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
     void A_TempestChain(double mindist, double maxdist, int mindmg, int maxdmg, String sound, class<Actor> trailtype, double trailspread, double traildist) {
+        // End of the chain
         if (ReactionTime <= 0)
             return;
 
+        // Find nearest actor within maxdist
         Actor next = null;
         double distance = maxdist;
-
-        // Find actors within maxdist
         let bti = BlockThingsIterator.Create(self, maxdist);
         while (bti.Next()) {
             let mo = bti.thing;
-
-            // Skip shooter and last target
-            if (!mo || mo == target || mo == tracer)
+            if (!mo || CheckTargets(mo)) // Skip shooter and previous targets
                 continue;
-            // Skip non-solid/non-shootable actors
-            if (!mo.bSolid || !mo.bShootable)
+            if (!mo.bSolid || !mo.bShootable) // Skip non-solid/non-shootable actors
                 continue;
-            // Distance check
-            if (Distance2D(mo) > distance || Distance2D(mo) < mindist)
+            if (Distance2D(mo) > distance || Distance2D(mo) < mindist) // Distance check
                 continue;
-            // Line of sight check
-            if (!CheckSight(mo, SF_IGNOREWATERBOUNDARY|SF_IGNOREVISIBILITY))
+            if (!CheckSight(mo, SF_IGNOREWATERBOUNDARY|SF_IGNOREVISIBILITY)) // Line of sight check
                 continue;
-
+            // Record nearest distance and next target in chain
             distance = Distance2D(mo);
             next = mo;
         }
 
+        // End chain early if no next target could be found
         if (!next)
             return;
 
+        // Play the sound
         A_StartSound(sound);
-        FTranslatedLineTarget victim;
+
         let a = AngleTo(next);
+        self.Angle = a;
+
+        // Spawn trail actors
+        A_CustomRailgun(0, 0, "", "", RGF_SILENT, 0, trailspread * 2, "", 0, 0, distance, 0, traildist, 0, trailtype);
+
+        // Spawn next puff
+        FTranslatedLineTarget victim;
         let p = AimLineAttack(a, PLAYERMISSILERANGE);
         let puff = LineAttack(a, PLAYERMISSILERANGE, p, Random(mindmg, maxdmg), 'Hitscan', "TempestWandPuff", LAF_NORANDOMPUFFZ, victim);
-        self.Angle = a;
-        A_CustomRailgun(0, 0, "", "", RGF_SILENT, 0, trailspread * 2, "", 0, 0, distance, 0, traildist, 0, trailtype);
         puff.ReactionTime = self.ReactionTime - 1;
-        puff.target = target;
+        puff.target = self;
         puff.tracer = victim.linetarget;
     }
 
@@ -192,7 +210,7 @@ class TempestWandBomb : Sorcerer2FX1 {
 
     // TODO: Implement A_TempestSpray
     // A_TempestSpray(360, 1024, 60, 80, 120, "TempestWandPuff3", "TempestWandTrail");
-    void A_TempestSpray(double a, double b, double c, double d, double e, class<Actor> pufftype, class<Actor> trailtype) {}
+    void A_TempestSpray(double angle, double maxdist, double c, double d, double e, class<Actor> pufftype, class<Actor> trailtype) {}
 
     States {
         Spawn:
