@@ -13,16 +13,11 @@ class TempestWand : HereticWeapon {
 
     // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
     action void A_FireTempestWandPL1(int basedmg, int randomdmg, int maxhops, class<Actor> pufftype, class<Actor> trailtype, double trailspread, double traildist) {
-        MBF21_ConsumeAmmo(0);
-        FRailParams p;
-        p.damage = 0; p.distance = PLAYERMISSILERANGE; p.offset_xy = 0; p.offset_z = 0; p.puff = null;
-        p.flags = RGF_NOPIERCING; p.spawnclass = trailtype; p.maxdiff = trailspread * 2; p.sparsity = traildist;
-        RailAttack(p);
         int dmg = basedmg + 3 * Random(1, randomDmg);
-        FTranslatedLineTarget victim;
-        let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ, victim);
-        puff.ReactionTime = maxhops;
-        puff.tracer = victim.linetarget;
+        A_RailAttack(0, 0, true, "", "", RGF_SILENT|RGF_NORANDOMPUFFZ|RGF_NOPIERCING, trailspread * 2, "", 0, 0, PLAYERMISSILERANGE, 0, traildist, 0, trailtype);
+        let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ);
+        if(puff)
+            puff.ReactionTime = maxhops;
     }
 
     States {
@@ -88,7 +83,7 @@ class TempestWandPuff : Actor {
     Default {
         Radius 20;
         Height 16;
-        ReactionTime 0;
+        ReactionTime 1;
 
         SeeSound "swnhit";
         AttackSound "swnmis";
@@ -98,69 +93,72 @@ class TempestWandPuff : Actor {
         +ALWAYSPUFF;
         +PUFFONACTORS;
         +PUFFGETSOWNER;
+        +HITTRACER;
     }
 
-    // Return true if mo is the shooter or one of the chain targets
-    bool CheckTargets(Actor mo) {
-        // Start at this puff
-        Actor puff = self;
-        while(puff) {
-            if (mo == puff.tracer)
-                return true;
-            // Check previous puff
-            puff = puff.target;
-            if (!TempestWandPuff(puff))
-                // If the target isn't a puff, it must be the player who initiated the attack
-                return mo == puff;
-        }
+    static String DumpActor(Actor a) {
+        if(a)
+            return String.Format("%s:%p:[%.2f,%.2f]", a.GetClassName(), a, a.pos.x, a.pos.y);
+        return "null";
+    }
+
+    static bool CheckTargets(Actor p, Actor mo) {
+        Console.Printf("CheckTargets: %s | %s", DumpActor(p), DumpActor(mo));
+        Console.Printf("Tracer: %s", DumpActor(p.tracer));
+        if (mo == p.tracer)
+            return true;
+        if (p.master is 'TempestWandPuff')
+            return TempestWandPuff.CheckTargets(p.master, mo);
+        Console.Printf("Master: %s", DumpActor(p.master));
+        if (mo == p.master)
+            return true;
+        Console.Printf("Next Target: %s", DumpActor(mo));
+        Console.Printf("");
         return false;
+    }
+
+    Actor GetNextChain(double mindist, double maxdist) {
+        double distance = maxdist;
+        Actor result = null;
+        let bti = BlockThingsIterator.Create(self, maxdist);
+        while (bti.Next()) {
+            let mo = bti.thing;
+            if (!mo || !mo.bSolid || !mo.bShootable || mo.Health <= 0)
+                continue;
+            if (Distance2D(mo) > distance || Distance2D(mo) < mindist)
+                continue;
+            if (!CheckSight(mo, SF_IGNOREWATERBOUNDARY|SF_IGNOREVISIBILITY))
+                continue;
+            if (TempestWandPuff.CheckTargets(self, mo))
+                continue;
+            distance = Distance2D(mo);
+            result = mo;
+        }
+        return result;
     }
 
     // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
     void A_TempestChain(double mindist, double maxdist, int mindmg, int maxdmg, String sound, class<Actor> trailtype, double trailspread, double traildist) {
         // End of the chain
-        if (ReactionTime <= 0)
-            return;
+        if (ReactionTime <= 0) return;
 
         // Find nearest actor within maxdist
-        Actor next = null;
-        double distance = maxdist;
-        let bti = BlockThingsIterator.Create(self, maxdist);
-        while (bti.Next()) {
-            let mo = bti.thing;
-            if (!mo || CheckTargets(mo)) // Skip shooter and previous targets
-                continue;
-            if (!mo.bSolid || !mo.bShootable) // Skip non-solid/non-shootable actors
-                continue;
-            if (Distance2D(mo) > distance || Distance2D(mo) < mindist) // Distance check
-                continue;
-            if (!CheckSight(mo, SF_IGNOREWATERBOUNDARY|SF_IGNOREVISIBILITY)) // Line of sight check
-                continue;
-            // Record nearest distance and next target in chain
-            distance = Distance2D(mo);
-            next = mo;
-        }
+        master = target;
+        target = GetNextChain(mindist, maxdist);
 
         // End chain early if no next target could be found
-        if (!next)
-            return;
+        if (!target) return;
 
         // Play the sound
+        double dist = Distance2D(target);
+        int dmg = Random(mindmg, maxdmg);
+        Angle = AngleTo(target);
         A_StartSound(sound);
-
-        let a = AngleTo(next);
-        self.Angle = a;
-
-        // Spawn trail actors
-        A_CustomRailgun(0, 0, "", "", RGF_SILENT, 0, trailspread * 2, "", 0, 0, distance, 0, traildist, 0, trailtype);
-
-        // Spawn next puff
-        FTranslatedLineTarget victim;
-        let p = AimLineAttack(a, PLAYERMISSILERANGE);
-        let puff = LineAttack(a, PLAYERMISSILERANGE, p, Random(mindmg, maxdmg), 'Hitscan', "TempestWandPuff", LAF_NORANDOMPUFFZ, victim);
-        puff.ReactionTime = self.ReactionTime - 1;
-        puff.target = self;
-        puff.tracer = victim.linetarget;
+        A_CustomRailgun(0, 0, "", "", RGF_SILENT, 1, trailspread * 2, "", 0, 0, dist, 0, traildist, 0, trailtype);
+        let puff = SpawnPuff(GetClass(), target.pos, Angle, 0, 0, PF_HITTHING|PF_NORANDOMZ, target);
+        target.DamageMobj(puff, self, dmg, 'Hitscan', DMG_INFLICTOR_IS_PUFF);
+        puff.ReactionTime = ReactionTime - 1;
+        puff.SetOrigin(puff.pos + (0, 0, max(target.height * 0.5, 32.0)), false);
     }
 
     States {
@@ -169,6 +167,7 @@ class TempestWandPuff : Actor {
             FX16 GHI 4 Bright;
             FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
             FX16 KL 4 Bright;
+            TNT1 A 75;
             Stop;
         Crash:
             FX18 OPQRS 4 Bright;
