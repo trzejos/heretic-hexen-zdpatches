@@ -13,7 +13,9 @@ class TempestWand : HereticWeapon {
 
     // TODO: Implement A_FireTempestWandPL1
     // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
-    action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {}
+    action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {
+        MBF21_ConsumeAmmo(0);
+    }
 
     States {
         Spawn:
