@@ -11,10 +11,18 @@ class TempestWand : HereticWeapon {
         +BLOODSPLATTER;
     }
 
-    // TODO: Implement A_FireTempestWandPL1
     // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
-    action void A_FireTempestWandPL1(double a, double b, double c, String pufftype, class<Actor> trailtype, double x, double y) {
+    action void A_FireTempestWandPL1(int basedmg, int randomdmg, int maxhops, class<Actor> pufftype, class<Actor> trailtype, double trailspread, double traildist) {
         MBF21_ConsumeAmmo(0);
+        FRailParams p;
+        p.damage = 0; p.distance = PLAYERMISSILERANGE; p.offset_xy = 0; p.offset_z = 0; p.puff = null;
+        p.flags = RGF_NOPIERCING; p.spawnclass = trailtype; p.maxdiff = trailspread * 2; p.sparsity = traildist;
+        RailAttack(p);
+        int dmg = basedmg + 3 * Random(1, randomDmg);
+        FTranslatedLineTarget victim;
+        let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ, victim);
+        puff.ReactionTime = maxhops;
+        puff.tracer = victim.linetarget;
     }
 
     States {
@@ -80,38 +88,80 @@ class TempestWandPuff : Actor {
     Default {
         Radius 20;
         Height 16;
+        ReactionTime 0;
+
+        SeeSound "swnhit";
+        AttackSound "swnmis";
 
         +NOBLOCKMAP;
         +NOGRAVITY;
+        +ALWAYSPUFF;
         +PUFFONACTORS;
+        +PUFFGETSOWNER;
     }
 
-    // TODO: Implement A_TempestChain
     // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
-    void A_TempestChain(double a, double b, double c, double d, String sound, class<Actor> trailtype, double x, double y) {}
-}
+    void A_TempestChain(double mindist, double maxdist, int mindmg, int maxdmg, String sound, class<Actor> trailtype, double trailspread, double traildist) {
+        if (ReactionTime <= 0)
+            return;
 
-class TempestWandPuff1 : TempestWandPuff {
+        Actor next = null;
+        double distance = maxdist;
+
+        // Find actors within maxdist
+        let bti = BlockThingsIterator.Create(self, maxdist);
+        while (bti.Next()) {
+            let mo = bti.thing;
+
+            // Skip shooter and last target
+            if (!mo || mo == target || mo == tracer)
+                continue;
+            // Skip non-solid/non-shootable actors
+            if (!mo.bSolid || !mo.bShootable)
+                continue;
+            // Distance check
+            if (Distance2D(mo) > distance || Distance2D(mo) < mindist)
+                continue;
+            // Line of sight check
+            if (!CheckSight(mo, SF_IGNOREWATERBOUNDARY|SF_IGNOREVISIBILITY))
+                continue;
+
+            distance = Distance2D(mo);
+            next = mo;
+        }
+
+        if (!next)
+            return;
+
+        A_StartSound(sound);
+        FTranslatedLineTarget victim;
+        let a = AngleTo(next);
+        let p = AimLineAttack(a, PLAYERMISSILERANGE);
+        let puff = LineAttack(a, PLAYERMISSILERANGE, p, Random(mindmg, maxdmg), 'Hitscan', "TempestWandPuff", LAF_NORANDOMPUFFZ, victim);
+        self.Angle = a;
+        A_CustomRailgun(0, 0, "", "", RGF_SILENT, 0, trailspread * 2, "", 0, 0, distance, 0, traildist, 0, trailtype);
+        puff.ReactionTime = self.ReactionTime - 1;
+        puff.target = target;
+        puff.tracer = victim.linetarget;
+    }
+
     States {
         Spawn:
+        XDeath:
+            FX16 GHI 4 Bright;
+            FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
+            FX16 KL 4 Bright;
+            Stop;
+        Crash:
             FX18 OPQRS 4 Bright;
             Stop;
     }
 }
 
-class TempestWandPuff2 : TempestWandPuff {
+class TempestSprayPuff : TempestWandPuff {
     States {
         Spawn:
-            FX16 GHI 4 Bright;
-            FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
-            FX16 KL 4 Bright;
-            Stop;
-    }
-}
-
-class TempestWandPuff3 : TempestWandPuff {
-    States {
-        Spawn:
+        XDeath:
             SWFX GHIJK 4 Bright;
             Stop;
     }
@@ -151,7 +201,7 @@ class TempestWandBomb : Sorcerer2FX1 {
             Loop;
         Death:
             SWFX A 5 Bright;
-            SWFX B 5 Bright A_TempestSpray(360, 1024, 60, 80, 120, "TempestWandPuff3", "TempestWandTrail");
+            SWFX B 5 Bright A_TempestSpray(360, 1024, 60, 80, 120, "TempestSprayPuff", "TempestWandTrail");
             SWFX CDEF 5 Bright;
             Stop;
     }
