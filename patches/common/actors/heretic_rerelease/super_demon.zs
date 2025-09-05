@@ -17,21 +17,22 @@ class SuperDemon : Actor {
         PainSound "sbtpai";
         DeathSound "sbtdth";
         ActiveSound "sbtact";
+        AttackSound "bitey";
     }
 
     // 3 Fireball attack, called 1 time per sequence
     void A_SuperDemonAttack1(class<Actor> cls) {
+        A_StartSound("sbtatk");
         A_CustomMissile(cls, 62, 0, 0);
         A_CustomMissile(cls, 62, 0, -4.5);
         A_CustomMissile(cls, 62, 0, 4.5);
-        A_StartSound("sbtatk");
     }
 
     // 2 Fireball attack, called 3 times per sequence
     void A_SuperDemonAttack2(class<Actor> cls, double min1, double max1, double min2, double max2) {
+        A_StartSound("sbtatk");
         A_CustomMissile(cls, 62, 0, frandom(min1, max1));
         A_CustomMissile(cls, 62, 0, frandom(min2, max2));
-        A_StartSound("sbtatk");
     }
 
     States {
@@ -43,7 +44,6 @@ class SuperDemon : Actor {
             Loop;
         Melee:
             DEMN G 6 A_FaceTarget;
-            DEMN F 0 A_StartSound("bitey");
             DEMN F 8 MBF21_MonsterMeleeAttack(8, 8, "", 96);
             DEMN E 6 A_FaceTarget;
             goto See;
