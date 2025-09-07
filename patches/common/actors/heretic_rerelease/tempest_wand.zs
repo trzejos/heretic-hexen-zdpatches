@@ -103,17 +103,12 @@ class TempestWandPuff : Actor {
     }
 
     static bool CheckTargets(Actor p, Actor mo) {
-        Console.Printf("CheckTargets: %s | %s", DumpActor(p), DumpActor(mo));
-        Console.Printf("Tracer: %s", DumpActor(p.tracer));
         if (mo == p.tracer)
             return true;
         if (p.master is 'TempestWandPuff')
             return TempestWandPuff.CheckTargets(p.master, mo);
-        Console.Printf("Master: %s", DumpActor(p.master));
         if (mo == p.master)
             return true;
-        Console.Printf("Next Target: %s", DumpActor(mo));
-        Console.Printf("");
         return false;
     }
 
