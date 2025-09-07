@@ -207,9 +207,29 @@ class TempestWandBomb : Sorcerer2FX1 {
         -ZDOOMTRANS;
     }
 
-    // TODO: Implement A_TempestSpray
-    // A_TempestSpray(360, 1024, 60, 80, 120, "TempestWandPuff3", "TempestWandTrail");
-    void A_TempestSpray(double angle, double maxdist, double c, double d, double e, class<Actor> pufftype, class<Actor> trailtype) {}
+    // A_TempestSpray(360, 1024, 60, 80, 120, "TempestSprayPuff", "TempestWandTrail");
+    void A_TempestSpray(double ang, double maxdist, int numrays, int mindmg, int maxdmg, class<Actor> pufftype, class<Actor> trailtype) {
+        int dmg = Random(mindmg, maxdmg);
+        FTranslatedLineTarget t;
+        let originator = target;
+
+        for (int i = 0; i < numrays; i++) {
+            double a = Angle - ang / 2 + ang / numrays*i;
+            AimLineAttack(a, maxdist, t);
+
+            // Skip player and null targets
+            if (originator == t.linetarget || !t.linetarget)
+                continue;
+            target = t.linetarget;
+            
+            Actor puff = SpawnPuff(pufftype, target.pos, t.angleFromSource, 0, 0, PF_NORANDOMZ, target);
+            puff.SetOrigin(puff.pos + (0, 0, target.height/2), false);
+            t.linetarget.DamageMobj(self, target, dmg, 'Hitscan', DMG_USEANGLE, t.angleFromSource);
+            A_CustomRailgun(0, 0, "", "", RGF_SILENT, 1, 32, "", 0, 0, Distance3D(target), 0, 16, 0, trailtype);
+        }
+
+        target = originator;
+    }
 
     States {
         Spawn:
