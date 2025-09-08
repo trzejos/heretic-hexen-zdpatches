@@ -13,6 +13,7 @@ class TempestWand : HereticWeapon {
 
     // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
     action void A_FireTempestWandPL1(int basedmg, int randomdmg, int maxhops, class<Actor> pufftype, class<Actor> trailtype, double trailspread, double traildist) {
+        MBF21_ConsumeAmmo(0);
         int dmg = basedmg + 3 * Random(1, randomDmg);
         FTranslatedLineTarget t;
         let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ, t);
