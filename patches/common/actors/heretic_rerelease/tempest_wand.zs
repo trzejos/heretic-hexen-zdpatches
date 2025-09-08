@@ -14,10 +14,14 @@ class TempestWand : HereticWeapon {
     // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
     action void A_FireTempestWandPL1(int basedmg, int randomdmg, int maxhops, class<Actor> pufftype, class<Actor> trailtype, double trailspread, double traildist) {
         int dmg = basedmg + 3 * Random(1, randomDmg);
-        let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ);
+        FTranslatedLineTarget t;
+        let puff = LineAttack(Angle, PLAYERMISSILERANGE, BulletSlope(), dmg, 'Hitscan', pufftype, LAF_NORANDOMPUFFZ, t);
         if(puff) {
-            puff.ReactionTime = maxhops;
             HHRereleaseActions.SpawnTrail(pos + (0, 0, Height/2), puff.pos, trailtype, trailspread, traildist);
+            puff.ReactionTime = maxhops;
+            puff.master = self;
+            puff.target = self;
+            puff.tracer = t.linetarget;
         }
     }
 
@@ -93,8 +97,6 @@ class TempestWandPuff : Actor {
         +NOGRAVITY;
         +ALWAYSPUFF;
         +PUFFONACTORS;
-        +PUFFGETSOWNER;
-        +HITTRACER;
     }
 
     // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
@@ -103,16 +105,21 @@ class TempestWandPuff : Actor {
         if (ReactionTime <= 0) return;
 
         // Find nearest actor within maxdist
-        tracer = HHRereleaseActions.FindNearestActorInChain(self, mindist, maxdist);
+        let next = HHRereleaseActions.FindNearestActorInChain(self, mindist, maxdist);
 
         // End chain early if no next target could be found
-        if (!tracer) return;
+        if (!next) return;
 
         // Do the attack
         A_StartSound(sound);
-        let puff = HHRereleaseActions.HitActor(self, tracer, GetClass(), Random(mindmg, maxdmg));
-        HHRereleaseActions.SpawnTrail(self.pos, puff.pos, trailtype, trailspread, traildist);
-        puff.ReactionTime = ReactionTime - 1;
+        let puff = HHRereleaseActions.HitActor(self, next, GetClass(), Random(mindmg, maxdmg));
+        if (puff) {
+            HHRereleaseActions.SpawnTrail(self.pos, puff.pos, trailtype, trailspread, traildist);
+            puff.ReactionTime = ReactionTime - 1;
+            puff.target = target;
+            puff.master = self;
+            puff.tracer = next;
+        }
     }
 
     States {
