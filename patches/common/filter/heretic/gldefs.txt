@@ -1,0 +1,190 @@
+// Crash (Miss) state
+pointlight  TEMPESTPUFF_X1 {
+    color 0.35 0.35 0.6
+    size 36
+    attenuate 1
+}
+pointlight  TEMPESTPUFF_X2 {
+    color 0.5 0.5 0.9
+    size 48
+    attenuate 1
+}
+pointlight  TEMPESTPUFF_X3 {
+    color 0.35 0.35 0.6
+    size 36
+    attenuate 1
+}
+pointlight  TEMPESTPUFF_X4 {
+    color 0.2 0.2 0.3
+    size 24
+    attenuate 1
+}
+pointlight  TEMPESTPUFF_X5 {
+    color 0.1 0.1 0.15
+    size 12
+    attenuate 1
+}
+
+object TempestPuff {
+    frame FX16G { light DSPARILBALL_X1 }
+    frame FX16H { light DSPARILBALL_X2 }
+    frame FX16I { light DSPARILBALL_X3 }
+    frame FX16J { light DSPARILBALL_X4 }
+    frame FX16K { light DSPARILBALL_X5 }
+    frame FX16L { light DSPARILBALL_X5 }
+
+    frame FX18O { light TEMPESTPUFF_X1 }
+    frame FX18P { light TEMPESTPUFF_X2 }
+    frame FX18Q { light TEMPESTPUFF_X3 }
+    frame FX18R { light TEMPESTPUFF_X4 }
+    frame FX18S { light TEMPESTPUFF_X5 }
+}
+
+pointlight TEMPESTBOMBPUFF_X1 {
+    color 0.5 0.5 0.9
+    size 36
+    attenuate 1
+}
+pointlight TEMPESTBOMBPUFF_X2 {
+    color 0.75 0.75 1.0
+    size 64
+    attenuate 1
+}
+pointlight TEMPESTBOMBPUFF_X3 {
+    color 0.5 0.5 0.9
+    size 48
+    attenuate 1
+}
+pointlight TEMPESTBOMBPUFF_X4 {
+    color 0.25 0.25 0.5
+    size 32
+    attenuate 1
+}
+pointlight TEMPESTBOMBPUFF_X5 {
+    color 0.1 0.1 0.2
+    size 18
+    attenuate 1
+}
+
+object TempestBombPuff {
+    frame SWFXG { light TEMPESTBOMBPUFF_X1 }
+    frame SWFXH { light TEMPESTBOMBPUFF_X2 }
+    frame SWFXI { light TEMPESTBOMBPUFF_X3 }
+    frame SWFXJ { light TEMPESTBOMBPUFF_X4 }
+    frame SWFXK { light TEMPESTBOMBPUFF_X5 }
+}
+
+pointlight TEMPESTBOMB_X1 {
+    color 0.5 0.5 0.9
+    size 48
+    attenuate 1
+}
+pointlight TEMPESTBOMB_X2 {
+    color 0.75 0.75 1.0
+    size 64
+    attenuate 1
+}
+pointlight TEMPESTBOMB_X3 {
+    color 0.6 0.6 1.0
+    size 56
+    attenuate 1
+}
+pointlight TEMPESTBOMB_X4 {
+    color 0.5 0.5 0.9
+    size 48
+    attenuate 1
+}
+pointlight TEMPESTBOMB_X5 {
+    color 0.3 0.3 0.7
+    size 36
+    attenuate 1
+}
+pointlight TEMPESTBOMB_X6 {
+    color 0.1 0.1 0.2
+    size 24
+    attenuate 1
+}
+
+object TempestBomb {
+    frame FX16A { light DSPARILBALL  }
+    frame FX16B { light DSPARILBALL  }
+    frame FX16C { light DSPARILBALL  }
+
+    frame SWFXA { light TEMPESTBOMB_X1 }
+    frame SWFXB { light TEMPESTBOMB_X2 }
+    frame SWFXC { light TEMPESTBOMB_X3 }
+    frame SWFXD { light TEMPESTBOMB_X4 }
+    frame SWFXE { light TEMPESTBOMB_X5 }
+    frame SWFXF { light TEMPESTBOMB_X6 }
+}
+
+object SuperDemonFX1 {
+    frame FX14A { light SERPENTBALL }
+    frame FX14B { light SERPENTBALL }
+    frame FX14C { light SERPENTBALL }
+
+    frame FX14D { light SERPENTBALL_X1 }
+    frame FX14E { light SERPENTBALL_X2 }
+    frame FX14F { light SERPENTBALL_X3 }
+    frame FX14G { light SERPENTBALL_X4 }
+    frame FX14H { light SERPENTBALL_X4 }
+}
+
+flickerlight DRAUGRATK {
+    color 1.0 0.0 1.0
+    size 72
+    secondarySize 84
+    chance 0.4
+    attenuate 1
+}
+flickerlight DRAUGRBALL {
+    color 1.0 0.0 1.0
+    size 60
+    secondarySize 69
+    chance 0.4
+    attenuate 1
+}
+flickerlight DRAUGRBALL_X1 {
+    color 0.8 0.0 0.8
+    size 69
+    secondarySize 78
+    chance 0.4
+    attenuate 1
+}
+flickerlight DRAUGRBALL_X2 {
+    color 0.6 0.0 0.6
+    size 78
+    secondarySize 87
+    chance 0.4
+    attenuate 1
+}
+flickerlight DRAUGRBALL_X3 {
+    color 0.4 0.0 0.4
+    size 87
+    secondarySize 96
+    chance 0.4
+    attenuate 1
+}
+flickerlight DRAUGRBALL_X4 {
+    color 0.2 0.0 0.2
+    size 96
+    secondarySize 105
+    chance 0.4
+    attenuate 1
+}
+
+object Draugr {
+    frame MUM2F { light DRAUGRATK }
+    frame MUM2G { light DRAUGRATK }
+}
+
+object DraugrFX1 {
+    frame PSKLA { light DRAUGRBALL }
+    frame PSKLB { light DRAUGRBALL }
+    frame PSKLC { light DRAUGRBALL }
+
+    frame PSKLD { light DRAUGRBALL_X1 }
+    frame PSKLE { light DRAUGRBALL_X2 }
+    frame PSKLF { light DRAUGRBALL_X3 }
+    frame PSKLG { light DRAUGRBALL_X4 }
+}

@@ -11,7 +11,7 @@ class TempestWand : HereticWeapon {
         +BLOODSPLATTER;
     }
 
-    // A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
+    // A_FireTempestWandPL1(50, 8, 3, "TempestPuff", "TempestTrail", 16, 16);
     action void A_FireTempestWandPL1(int basedmg, int randomdmg, int maxhops, class<Actor> pufftype, class<Actor> trailtype, double trailspread, double traildist) {
         MBF21_ConsumeAmmo(0);
         int dmg = basedmg + 3 * Random(1, randomDmg);
@@ -41,7 +41,7 @@ class TempestWand : HereticWeapon {
             Wait;
         Fire:
             SWND B 4 Bright A_PlayWeaponSound("swnfir");
-            SWND D 4 Bright A_FireTempestWandPL1(50, 8, 3, "TempestWandPuff", "TempestWandTrail", 16, 16);
+            SWND D 4 Bright A_FireTempestWandPL1(50, 8, 3, "TempestPuff", "TempestTrail", 16, 16);
             SWND C 4 Bright;
             SWND BAA 6;
             SWND A 0 A_ReFire;
@@ -62,14 +62,14 @@ class TempestWandPowered : TempestWand {
             SWND A 10 Bright A_PlayWeaponSound("swnchg");
             SWND BCDE 5 Bright;
             SWND E 5 Bright MBF21_ConsumeAmmo(0);
-            SWND F 5 Bright MBF21_WeaponProjectile("TempestWandBomb", 0, 0, 0, 0);
+            SWND F 5 Bright MBF21_WeaponProjectile("TempestBomb", 0, 0, 0, 0);
             SWND C 5 Bright;
             SWND B 5 Bright A_ReFire;
             goto Ready;
     }
 }
 
-class TempestWandTrail : Actor {
+class TempestTrail : Actor {
     Default {
         Radius 8;
         Height 8;
@@ -85,7 +85,7 @@ class TempestWandTrail : Actor {
     }
 }
 
-class TempestWandPuff : Actor {
+class TempestPuff : Actor {
     Default {
         Radius 20;
         Height 16;
@@ -100,7 +100,7 @@ class TempestWandPuff : Actor {
         +PUFFONACTORS;
     }
 
-    // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
+    // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestTrail", 16, 16);
     void A_TempestChain(double mindist, double maxdist, int mindmg, int maxdmg, String sound, class<Actor> trailtype, double trailspread, double traildist) {
         // End of the chain
         if (ReactionTime <= 0) return;
@@ -127,9 +127,8 @@ class TempestWandPuff : Actor {
         Spawn:
         XDeath:
             FX16 GHI 4 Bright;
-            FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestWandTrail", 16, 16);
+            FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestTrail", 16, 16);
             FX16 KL 4 Bright;
-            TNT1 A 75;
             Stop;
         Crash:
             FX18 OPQRS 4 Bright;
@@ -137,7 +136,7 @@ class TempestWandPuff : Actor {
     }
 }
 
-class TempestSprayPuff : TempestWandPuff {
+class TempestBombPuff : TempestPuff {
     States {
         Spawn:
         XDeath:
@@ -146,7 +145,7 @@ class TempestSprayPuff : TempestWandPuff {
     }
 }
 
-class TempestWandBomb : Sorcerer2FX1 {
+class TempestBomb : Sorcerer2FX1 {
     Default {
         Speed 15;
         FastSpeed 15;
@@ -169,7 +168,7 @@ class TempestWandBomb : Sorcerer2FX1 {
         -ZDOOMTRANS;
     }
 
-    // A_TempestSpray(360, 1024, 60, 80, 120, "TempestSprayPuff", "TempestWandTrail");
+    // A_TempestSpray(360, 1024, 60, 80, 120, "TempestBombPuff", "TempestTrail");
     void A_TempestSpray(double ang, double maxdist, int mindmg, int maxdmg, int numrays, class<Actor> pufftype, class<Actor> trailtype) {
         FTranslatedLineTarget t;
         RadiusAttack(target, ExplosionDamage, ExplosionRadius, 'Normal', RADF_CIRCULAR);
@@ -194,7 +193,7 @@ class TempestWandBomb : Sorcerer2FX1 {
             Loop;
         Death:
             SWFX A 5 Bright;
-            SWFX B 5 Bright A_TempestSpray(360, 1024, 60, 80, 120, "TempestSprayPuff", "TempestWandTrail");
+            SWFX B 5 Bright A_TempestSpray(360, 1024, 60, 80, 120, "TempestBombPuff", "TempestTrail");
             SWFX CDEF 5 Bright;
             Stop;
     }
