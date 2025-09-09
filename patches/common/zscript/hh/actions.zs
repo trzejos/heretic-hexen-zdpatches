@@ -2,8 +2,7 @@ class HHRereleaseActions {
     static Actor HitActor(Actor src, Actor dst, class<Actor> pufftype, int dmg) {
         Actor inflictor = src;
         while (inflictor.target) {
-            if (inflictor is 'PlayerPawn')
-                break;
+            if (inflictor is 'PlayerPawn') break;
             inflictor = inflictor.target;
         }
 
@@ -25,8 +24,8 @@ class HHRereleaseActions {
     static bool CheckChainHistory(Actor puff, Actor mo) {
         if (mo == puff.tracer || mo == puff.target)
             return true;
-        if (puff.master && puff.master.bIsPuff)
-            return CheckChainHistory(puff.master, mo);
+        if (puff.target && puff.target.bIsPuff)
+            return CheckChainHistory(puff.target, mo);
         return false;
     }
 

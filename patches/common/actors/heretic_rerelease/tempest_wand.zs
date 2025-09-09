@@ -20,9 +20,6 @@ class TempestWand : HereticWeapon {
         if(puff) {
             HHRereleaseActions.SpawnTrail(pos + (0, 0, Height/2), puff.pos, trailtype, trailspread, traildist);
             puff.ReactionTime = maxhops;
-            puff.master = self;
-            puff.target = self;
-            puff.tracer = t.linetarget;
         }
     }
 
@@ -98,6 +95,8 @@ class TempestPuff : Actor {
         +NOGRAVITY;
         +ALWAYSPUFF;
         +PUFFONACTORS;
+        +PUFFGETSOWNER;
+        +HITTRACER;
     }
 
     // A_TempestChain(0, 512, 50, 80, "swnzap", "TempestTrail", 16, 16);
@@ -117,9 +116,6 @@ class TempestPuff : Actor {
         if (puff) {
             HHRereleaseActions.SpawnTrail(self.pos, puff.pos, trailtype, trailspread, traildist);
             puff.ReactionTime = ReactionTime - 1;
-            puff.target = target;
-            puff.master = self;
-            puff.tracer = next;
         }
     }
 
