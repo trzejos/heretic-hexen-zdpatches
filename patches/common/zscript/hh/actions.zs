@@ -1,8 +1,11 @@
 class HHRereleaseActions {
     static Actor HitActor(Actor src, Actor dst, class<Actor> pufftype, int dmg) {
         Actor inflictor = src;
-        while (inflictor.bIsPuff && inflictor.target)
+        while (inflictor.target) {
+            if (inflictor is 'PlayerPawn')
+                break;
             inflictor = inflictor.target;
+        }
 
         let puff = src.SpawnPuff(pufftype, dst.pos + (0, 0, dst.Height/2), src.Angle, src.Angle, 0, PF_HITTHING|PF_NORANDOMZ, dst);
         dst.DamageMobj(puff, inflictor, dmg, 'Hitscan', DMG_INFLICTOR_IS_PUFF);
