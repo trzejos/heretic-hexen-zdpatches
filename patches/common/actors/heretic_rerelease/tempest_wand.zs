@@ -125,6 +125,7 @@ class TempestPuff : Actor {
             FX16 GHI 4 Bright;
             FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestTrail", 16, 16);
             FX16 KL 4 Bright;
+            TNT1 A 70;
             Stop;
         Crash:
             FX18 OPQRS 4 Bright;
