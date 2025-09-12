@@ -83,6 +83,7 @@ class TempestTrail : Actor {
 }
 
 class TempestPuff : Actor {
+    Actor child;
     Default {
         Radius 20;
         Height 16;
@@ -112,11 +113,17 @@ class TempestPuff : Actor {
 
         // Do the attack
         A_StartSound(sound);
-        let puff = HHRereleaseActions.HitActor(self, next, GetClass(), Random(mindmg, maxdmg));
-        if (puff) {
-            HHRereleaseActions.SpawnTrail(self.pos, puff.pos, trailtype, trailspread, traildist);
-            puff.ReactionTime = ReactionTime - 1;
+        child = HHRereleaseActions.HitActor(self, next, GetClass(), Random(mindmg, maxdmg));
+        if (child) {
+            HHRereleaseActions.SpawnTrail(self.pos, child.pos, trailtype, trailspread, traildist);
+            child.ReactionTime = ReactionTime - 1;
         }
+    }
+
+    void CheckForChildren() {
+        if (child)
+            return;
+        Destroy();
     }
 
     States {
@@ -125,8 +132,8 @@ class TempestPuff : Actor {
             FX16 GHI 4 Bright;
             FX16 J 4 Bright A_TempestChain(0, 512, 50, 80, "swnzap", "TempestTrail", 16, 16);
             FX16 KL 4 Bright;
-            TNT1 A 70;
-            Stop;
+            TNT1 A 5 CheckForChildren;
+            Wait;
         Crash:
             FX18 OPQRS 4 Bright;
             Stop;

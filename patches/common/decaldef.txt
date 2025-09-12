@@ -1,0 +1,5 @@
+generator TempestWand           RailScorchLower
+generator TempestWandPowered    RailScorchLower
+generator TempestBomb           SorcererLightning
+generator DraugrFX1             WizardScorch
+generator SuperDemonFX1         RevenantScorch
