@@ -22,7 +22,7 @@ Notable differences include:
 
 The "patches" directory contains folders that can be used by gzdoom directly:
 - The "common" patch contains all the actor definitions. It can be safely autoloaded to enable the
-  new features to work when the Nightdive IWADs are used. The loadacs lump references a module that
+  new features to work when the Nightdive IWADs are used. The LOADACS lump references a module that
   must be compiled with zdoom ACC. The source for the library is in "acs_src". If this ever has a full
   release and isn't implemented in GZDoom directly, it will be included in pk3 releases.
 - The "heretic" patch contains PNG versions of the fullscreen raw graphics in heretic.wad
