@@ -1,3 +1,4 @@
+#include "actors/heretic_rerelease/firemace_spawner.dec"
 #include "actors/hexen_rerelease/puzzle.dec"
 #include "actors/hexen_rerelease/props.dec"
 #include "actors/hexen_rerelease/miscellaneous.dec"

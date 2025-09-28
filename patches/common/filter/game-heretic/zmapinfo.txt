@@ -6,4 +6,5 @@ DoomEdNums {
 
     // Weapons
     3104 = TempestWand
+    3105 = FiremaceSpawner
 }
