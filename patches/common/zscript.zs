@@ -1,4 +1,7 @@
+version "5.0"
+
 #include "zscript/hh/actions.zs"
+#include "zscript/hh/morphhelper.zs"
 #include "zscript/hh/postprocessor.zs"
 
 #include "actors/heretic_rerelease/draugr.zs"

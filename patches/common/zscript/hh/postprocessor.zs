@@ -5,7 +5,7 @@ const SCRIPT_ID = 27000;
 
 class Hexen2025PostProcessor : LevelPostProcessor {
     protected void Apply(Name checksum, String mapname) {
-        for (int t = 0; t < GetThingCount(); t++) {
+        for (uint t = 0; t < GetThingCount(); t++) {
             switch(GetThingSpecial(t)) {
                 case SPECIAL_CLASS_SELECT: {
                     SetThingSpecial(t, 80);

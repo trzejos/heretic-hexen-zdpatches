@@ -38,7 +38,7 @@ doommake.properties
 
 # Doom Builder and Others
 *.dbs
-*.o
+# *.o
 *.bak
 *.backup*
 *.autosave*
