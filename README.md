@@ -1,6 +1,5 @@
 # Heretic + Hexen (2025) Patches for UZDoom
 
-
 ## What This Is
 
 This is a collection of patches for UZDoom that allow users to play with the new features of
@@ -40,7 +39,6 @@ The following sections contain the load order of files UZDoom needs to play diff
 - `hh_patch_common.pk3`
 - _`heretic_ex.wad`_ - Only needed for "enhanced" maps
 - `hh_patch_heretic.pk3` - Only contains title graphics
-
 
 #### Heretic: Faith Renewed
 
