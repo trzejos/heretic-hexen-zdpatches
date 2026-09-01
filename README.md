@@ -1,8 +1,9 @@
-# Heretic + Hexen (2025) Patches for GZDoom
+# Heretic + Hexen (2025) Patches for UZDoom
+
 
 ## What This Is
 
-This is a collection of patches for GZDoom that allow users to play with the new features of
+This is a collection of patches for UZDoom that allow users to play with the new features of
 Heretic + Hexen by Nightdive Studios, including the new Faith Renewed and Vestiges of Grandeur
 episodes. Changes made by the "enhanced" enemy/weapon/item behavior toggles is not implemented
 
@@ -20,13 +21,51 @@ Notable differences include:
     be loaded to print messages when these specials are used/activated. They can be removed and the
     specials will just do nothing instead.
 
-The "patches" directory contains folders that can be used by gzdoom directly:
-- The "common" patch contains all the actor definitions. It can be safely autoloaded to enable the
-  new features to work when the Nightdive IWADs are used. The LOADACS lump references a module that
-  must be compiled with zdoom ACC. The source for the library is in "acs_src". If this ever has a full
-  release and isn't implemented in GZDoom directly, it will be included in pk3 releases.
-- The "heretic" patch contains PNG versions of the fullscreen raw graphics in heretic.wad
-- The "fr" patch contains PNG versions of the fullscreen raw graphics in heretic_fr.wad
-- The "hexen" patch contains PNG versions of the fullscreen raw graphics in hexen.wad
-- The "hexdd" patch contains PNG versions of the fullscreen raw graphics in hexdd.wad
-- The "vog" patch contains PNG versions of the fullscreen raw graphics in hexen_vog.wad
+## Usage
+
+Precompiled PK3s are available on the [releases page](https://github.com/trzejos/heretic-hexen-zdpatches/releases/latest).
+
+The following sections contain the load order of files UZDoom needs to play different games. Files that are **bolded** are IWADs, and files that are _italicized_ are optional. Other gameplay mods may be loaded afterwards if desired.
+
+> [!IMPORTANT]  
+> IWADs used with this _must_ be from the KEX rerelease since they contain the assets required for all new actors.
+
+> [!TIP]
+> The `hh_patch_common.pk3` file used in all cases should be safe to autoload, but is untested in multiplayer games
+> with others not using it.
+
+#### Heretic: KEX Edition
+
+- **`heretic.wad`**
+- `hh_patch_common.pk3`
+- _`heretic_ex.wad`_ - Only needed for "enhanced" maps
+- `hh_patch_heretic.pk3` - Only contains title graphics
+
+
+#### Heretic: Faith Renewed
+
+- **`heretic.wad`**
+- `hh_patch_common.pk3`
+- `heretic_fr.wad`
+- `hh_patch_fr.pk3` - Only contains title graphics
+
+#### Hexen: KEX Edition
+
+- **`hexen.wad`**
+- `hh_patch_common.pk3`
+- _`hexen_ex.wad`_ - Adds scripted map markers and the non-functional class changing tome
+- `hh_patch_hexen.pk3` - Only contains title graphics
+
+#### Hexen: Deathkings KEX Edition
+
+- **`hexen.wad`**
+- `hh_patch_common.pk3`
+- _`hexdd_ex.wad`_ - Adds scripted map markers and the non-functional class changing tome
+- `hh_patch_hexdd.pk3` - Only contains title graphics
+
+#### Hexen: Vestiges of Grandeur
+
+- **`hexen.wad`**
+- `hh_patch_common.pk3`
+- `hexen_vog.wad`
+- `hh_patch_vog.pk3` - Only contains title graphics
