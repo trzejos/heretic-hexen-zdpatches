@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Build PK3s
         run: |
+          pwd
+          ls
           cd patches
           (cd common; zip -r ../hh_patch_common.pk3 *)
           (cd heretic; zip -r ../hh_patch_heretic.pk3 *)
