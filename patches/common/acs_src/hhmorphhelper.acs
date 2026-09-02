@@ -1,4 +1,4 @@
-#library "classmenu"
+#library "hhmorphhelper"
 #include "zcommon.acs"
 
 script 27000 (int classnum) {
