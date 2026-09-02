@@ -1,5 +1,75 @@
 class HHMorphHelper play {
-    static void TransferProperties(PlayerPawn oldPawn, PlayerPawn newPawn) {
+    static int MorphPlayer(int playernum, int classnum) {
+        // Make sure we have a valid player number and they are in game
+        if (playernum < 0 || playernum >= MAXPLAYERS)
+            return 0;
+        if (!PlayerInGame[playernum])
+            return 0;
+
+        // Make sure the player has a pawn and is alive
+        let player = players[playernum];
+        if (!player.mo || player.health <= 0)
+            return 0;
+
+        // Get new class number
+        let newclassnum = (classnum - 1) % PlayerClasses.Size();
+        if (classnum == 0)
+            // Cycle based on current class if classnum was 0
+            newclassnum = (player.CurrentPlayerClass + 1) % PlayerClasses.Size();
+
+        // Abort early if we are about to switch to the same class
+        if (newclassnum == player.CurrentPlayerClass)
+            return 0;
+
+        // Create new pawn and teleport fog
+        let oldPawn = player.mo;
+        let newPawn = PlayerPawn(Actor.Spawn(PlayerClasses[newclassnum].Type, oldPawn.Pos, NO_REPLACE));
+        if (!newPawn) return 0;
+        Actor.Spawn('TeleportFog', oldPawn.Pos, NO_REPLACE);
+
+        TransferProperties(oldPawn, newPawn, newclassnum);
+        TransferInventory(oldPawn, newPawn);
+
+        // Cleanup
+        oldPawn.Destroy();
+        let prettyName = StringTable.Localize(PlayerPawn.GetPrintableDisplayName(PlayerClasses[newclassnum].Type));
+        newPawn.A_Print("Changed class to "..prettyName);
+
+        return 1;
+    }
+
+    static void TransferProperties(PlayerPawn oldPawn, PlayerPawn newPawn, int newclassnum) {
+        let player = oldPawn.player;
+
+        // Transfer player/camera
+        newPawn.Player = player;
+        player.Mo = newPawn;
+        player.Camera = newPawn;
+        player.Cls = newPawn.GetClassName();
+        player.CurrentPlayerClass = newclassnum;
+        player.ViewHeight = newPawn.ViewHeight;
+        oldPawn.player = null;
+
+        // Transfer actor pointers
+        ThinkerIterator ti = ThinkerIterator.Create();
+        Actor mo;
+        while (mo = Actor(ti.Next())) {
+            if (mo.Target == oldPawn)
+                mo.Target = newPawn;
+            if (mo.Tracer == oldPawn)
+                mo.Tracer = newPawn;
+            if (mo.Master == oldPawn)
+                mo.Master = newPawn;
+            if (!mo.bIsMonster)
+                continue;
+            if (mo.LastHeard == oldPawn)
+                mo.LastHeard = newPawn;
+            if (mo.LastEnemy == oldPawn)
+                mo.LastEnemy = newPawn;
+            if (mo.LastLookActor == oldPawn)
+                mo.LastLookActor = newPawn;
+        }
+
         // Transfer properties
         newPawn.Translation = oldPawn.Translation;
         newPawn.Vel = oldPawn.Vel;
@@ -65,73 +135,7 @@ class HHMorphHelper play {
             }
         }
     }
-
-    static int MorphPlayer(int playernum, int classnum) {
-        // Make sure we have a valid player number and they are in game
-        if (playernum < 0 || playernum >= MAXPLAYERS)
-            return 0;
-        if (!PlayerInGame[playernum])
-            return 0;
-
-        // Make sure the player has a pawn and is alive
-        let player = players[playernum];
-        if (!player.mo || player.health <= 0)
-            return 0;
-
-        // Get new class number
-        let newclassnum = (classnum - 1) % PlayerClasses.Size();
-        if (classnum == 0)
-            // Cycle based on current class if classnum was 0
-            newclassnum = (player.CurrentPlayerClass + 1) % PlayerClasses.Size();
-
-        // Abort early if we are about to switch to the same class
-        if (newclassnum == player.CurrentPlayerClass)
-            return 0;
-
-        // Create new pawn and teleport fog
-        let oldPawn = player.mo;
-        let newPawn = PlayerPawn(Actor.Spawn(PlayerClasses[newclassnum].Type, oldPawn.Pos, NO_REPLACE));
-        if (!newPawn) return 0;
-        Actor.Spawn('TeleportFog', oldPawn.Pos, NO_REPLACE);
-
-
-        // Transfer player/camera
-        newPawn.Player = player;
-        player.Mo = newPawn;
-        player.Camera = newPawn;
-        player.Cls = newPawn.GetClassName();
-        player.CurrentPlayerClass = newclassnum;
-        player.ViewHeight = newPawn.ViewHeight;
-        oldPawn.player = null;
-
-        // Transfer actor pointers
-        ThinkerIterator ti = ThinkerIterator.Create();
-        Actor mo;
-        while (mo = Actor(ti.Next())) {
-            if (mo.Target == oldPawn)
-                mo.Target = newPawn;
-            if (mo.Tracer == oldPawn)
-                mo.Tracer = newPawn;
-            if (mo.Master == oldPawn)
-                mo.Master = newPawn;
-            if (!mo.bIsMonster)
-                continue;
-            if (mo.LastHeard == oldPawn)
-                mo.LastHeard = newPawn;
-            if (mo.LastEnemy == oldPawn)
-                mo.LastEnemy = newPawn;
-            if (mo.LastLookActor == oldPawn)
-                mo.LastLookActor = newPawn;
-        }
-
-        TransferProperties(oldPawn, newPawn);
-        TransferInventory(oldPawn, newPawn);
-
-        // Cleanup
-        oldPawn.Destroy();
-        let prettyName = StringTable.Localize(PlayerPawn.GetPrintableDisplayName(PlayerClasses[newclassnum].Type));
-        newPawn.A_Print("Changed class to "..prettyName);
-
-        return 1;
-    }
 }
+
+class HHWeaponTracker : Inventory {}
+class HHWeaponPieceTracker : Inventory {}
