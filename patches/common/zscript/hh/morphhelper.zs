@@ -91,6 +91,10 @@ class HHMorphHelper play {
     }
 
     static void TransferInventory(PlayerPawn oldPawn, PlayerPawn newPawn) {
+        HHWeaponTracker oldWeapons = new('HHWeaponTracker');
+        oldWeapons.key = oldPawn.GetClassName();
+        HHWeaponTrackerGroup newWeaponTrackers = HHWeaponTrackerGroup(Actor.Spawn('HHWeaponTrackerGroup'));
+
         // Copy old inventory
         for(let ii = oldPawn.Inv; ii != null; ii = ii.Inv) {
             String itype = ii.GetClassName();
@@ -101,23 +105,41 @@ class HHMorphHelper play {
                 itype = newPawn.FlechetteType.GetClassName();
 
             // Store found weapons
-            if (c is 'Weapon')
-                // TODO: Somehow track weapons which have been picked up
+            if (c is 'Weapon') {
+                oldWeapons.Collect(itype);
                 continue;
-
-            // Store found weapon pieces
+            }
+            
+            // Restore found weapons from previous swaps
+            if (c is 'HHWeaponTrackerGroup') {
+                newWeaponTrackers.ImportTrackers(HHWeaponTrackerGroup(ii));
+                continue;
+            }
+            
             if (c is 'WeaponHolder')
                 // TODO: Track weapon pieces
                 // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/weaponpiece.zs
                 continue;
+
             if (c is 'BasicArmor')
                 // TODO: Figure out armor
                 // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
                 continue;
+
             if (c is 'HexenArmor')
+                // TODO: Figure out armor
+                // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
                 continue;
+
             newPawn.GiveInventory(itype, ii.Amount);
         }
+
+        // Restore previously found weapons
+        newWeaponTrackers.AddTracker(oldWeapons);
+        if (newWeaponTrackers.CallTryPickup(newPawn))
+            newWeaponTrackers.GiveWeapons(newPawn);
+        else
+            newWeaponTrackers.Destroy();
         
         bool foundweapon = false;
         for(let di = newPawn.GetDropItems(); di != null; di = di.Next) {
@@ -137,5 +159,47 @@ class HHMorphHelper play {
     }
 }
 
-class HHWeaponTracker : Inventory {}
+class HHWeaponTrackerGroup : Inventory {
+    Map<Name, HHWeaponTracker> trackers;
+
+    void AddTracker(HHWeaponTracker wt) {
+        trackers.Insert(wt.key, wt);
+    }
+
+    void ImportTrackers(HHWeaponTrackerGroup wtg) {
+        foreach(wt : wtg.trackers)
+            AddTracker(wt);
+    }
+
+    void GiveWeapons(PlayerPawn pawn) {
+        if (!trackers.CheckKey(pawn.GetClassName()))
+            return;
+        trackers.Get(pawn.GetClassName()).GiveWeapons(pawn);
+    }
+}
+
+class HHWeaponTracker play {
+    Name key;
+    Array<Name> collectedWeapons;
+
+    void Collect(Name w) {
+        if (collectedWeapons.Find(w) == collectedWeapons.Size())
+            collectedWeapons.Push(w);
+    }
+
+    void Append(HHWeaponTracker wt) {
+        for (int i = 0; i < wt.collectedWeapons.Size(); i++) {
+            Collect(wt.collectedWeapons[i]);
+        }
+    }
+
+    void GiveWeapons(PlayerPawn pawn) {
+        for (int i = 0; i < collectedWeapons.Size(); i++) {
+            if (!pawn.FindInventory(collectedWeapons[i]))
+                pawn.GiveInventory(collectedWeapons[i], 1);
+        }
+    }
+}
+
+
 class HHWeaponPieceTracker : Inventory {}
