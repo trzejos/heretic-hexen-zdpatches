@@ -109,13 +109,7 @@ class HHMorphHelper play {
                 oldWeapons.Collect(itype);
                 continue;
             }
-            
-            // Restore found weapons from previous swaps
-            if (c is 'HHWeaponTrackerGroup') {
-                newWeaponTrackers.ImportTrackers(HHWeaponTrackerGroup(ii));
-                continue;
-            }
-            
+
             if (c is 'WeaponHolder')
                 // TODO: Track weapon pieces
                 // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/weaponpiece.zs
@@ -129,6 +123,13 @@ class HHMorphHelper play {
             if (c is 'HexenArmor')
                 // TODO: Figure out armor
                 // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
+                continue;
+
+            // Restore found weapons from previous swaps
+            if (c is 'HHWeaponTrackerGroup')
+                newWeaponTrackers.ImportTrackers(HHWeaponTrackerGroup(ii));
+
+            if (c is 'HHTrackerBase')
                 continue;
 
             newPawn.GiveInventory(itype, ii.Amount);
@@ -159,7 +160,16 @@ class HHMorphHelper play {
     }
 }
 
-class HHWeaponTrackerGroup : Inventory {
+class HHTrackerBase : Inventory {
+    Default {
+        +INVENTORY.QUIET
+        +INVENTORY.UNDROPPABLE
+        +INVENTORY.PERSISTENTPOWER
+        +INVENTORY.KEEPDEPLETED
+    }
+}
+
+class HHWeaponTrackerGroup : HHTrackerBase {
     Map<Name, HHWeaponTracker> trackers;
 
     void AddTracker(HHWeaponTracker wt) {
