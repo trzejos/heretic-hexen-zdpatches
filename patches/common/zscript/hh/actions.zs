@@ -1,4 +1,4 @@
-class HHRereleaseActions {
+class HHRereleaseActions play {
     static Actor HitActor(Actor src, Actor dst, class<Actor> pufftype, int dmg) {
         Actor inflictor = src;
         while (inflictor.target) {

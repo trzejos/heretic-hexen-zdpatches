@@ -51,14 +51,14 @@ The following sections contain the load order of files UZDoom needs to play diff
 
 - **`hexen.wad`**
 - `hh_patch_common.pk3`
-- _`hexen_ex.wad`_ - Adds scripted map markers and the non-functional class changing tome
+- _`hexen_ex.wad`_ - Adds scripted map markers and class changing tomes
 - `hh_patch_hexen.pk3` - Only contains title graphics
 
 #### Hexen: Deathkings KEX Edition
 
 - **`hexen.wad`**
 - `hh_patch_common.pk3`
-- _`hexdd_ex.wad`_ - Adds scripted map markers and the non-functional class changing tome
+- _`hexdd_ex.wad`_ - Adds scripted map markers and class changing tomes
 - `hh_patch_hexdd.pk3` - Only contains title graphics
 
 #### Hexen: Vestiges of Grandeur
