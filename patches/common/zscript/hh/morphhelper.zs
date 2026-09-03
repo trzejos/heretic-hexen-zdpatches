@@ -92,8 +92,11 @@ class HHMorphHelper play {
 
     static void TransferInventory(PlayerPawn oldPawn, PlayerPawn newPawn) {
         HHWeaponTracker oldWeapons = new('HHWeaponTracker');
+        HHWeaponHolderTracker oldWeaponPieces = new('HHWeaponHolderTracker');
         oldWeapons.key = oldPawn.GetClassName();
+        oldWeaponPieces.key = oldPawn.GetClassName();
         HHWeaponTrackerGroup newWeaponTrackers = HHWeaponTrackerGroup(Actor.Spawn('HHWeaponTrackerGroup'));
+        HHWeaponHolderTrackerGroup newWeaponPieceTrackers = HHWeaponHolderTrackerGroup(Actor.Spawn('HHWeaponHolderTrackerGroup'));
 
         // Copy old inventory
         for(let ii = oldPawn.Inv; ii != null; ii = ii.Inv) {
@@ -110,10 +113,11 @@ class HHMorphHelper play {
                 continue;
             }
 
-            if (c is 'WeaponHolder')
-                // TODO: Track weapon pieces
-                // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/weaponpiece.zs
+            // Store found weapon pieces
+            if (c is 'WeaponHolder') {
+                oldWeaponPieces.Collect(WeaponHolder(ii));
                 continue;
+            }
 
             if (c is 'BasicArmor')
                 // TODO: Figure out armor
@@ -125,10 +129,11 @@ class HHMorphHelper play {
                 // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
                 continue;
 
-            // Restore found weapons from previous swaps
+            // Restore Trackers
             if (c is 'HHWeaponTrackerGroup')
                 newWeaponTrackers.ImportTrackers(HHWeaponTrackerGroup(ii));
-
+            if (c is 'HHWeaponHolderTrackerGroup')
+                newWeaponPieceTrackers.ImportTrackers(HHWeaponHolderTrackerGroup(ii));
             if (c is 'HHTrackerBase')
                 continue;
 
@@ -141,6 +146,13 @@ class HHMorphHelper play {
             newWeaponTrackers.GiveWeapons(newPawn);
         else
             newWeaponTrackers.Destroy();
+
+        // Restore WeaponHolders
+        newWeaponPieceTrackers.AddTracker(oldWeaponPieces);
+        if (newWeaponPieceTrackers.CallTryPickup(newPawn))
+            newWeaponPieceTrackers.GiveWeaponHolders(newPawn);
+        else
+            newWeaponPieceTrackers.Destroy();
         
         bool foundweapon = false;
         for(let di = newPawn.GetDropItems(); di != null; di = di.Next) {
@@ -197,12 +209,6 @@ class HHWeaponTracker play {
             collectedWeapons.Push(w);
     }
 
-    void Append(HHWeaponTracker wt) {
-        for (int i = 0; i < wt.collectedWeapons.Size(); i++) {
-            Collect(wt.collectedWeapons[i]);
-        }
-    }
-
     void GiveWeapons(PlayerPawn pawn) {
         for (int i = 0; i < collectedWeapons.Size(); i++) {
             if (!pawn.FindInventory(collectedWeapons[i]))
@@ -211,5 +217,41 @@ class HHWeaponTracker play {
     }
 }
 
+class HHWeaponHolderTrackerGroup : HHTrackerBase {
+    Map<Name, HHWeaponHolderTracker> trackers;
 
-class HHWeaponPieceTracker : Inventory {}
+    void AddTracker(HHWeaponHolderTracker wt) {
+        trackers.Insert(wt.key, wt);
+    }
+
+    void ImportTrackers(HHWeaponHolderTrackerGroup wtg) {
+        foreach(wt : wtg.trackers)
+            AddTracker(wt);
+    }
+
+    void GiveWeaponHolders(PlayerPawn pawn) {
+        if (!trackers.CheckKey(pawn.GetClassName()))
+            return;
+        trackers.Get(pawn.GetClassName()).GiveWeaponHolders(pawn);
+    }
+}
+
+class HHWeaponHolderTracker play {
+    Name key;
+    Map<Name, int> holders;
+
+    void Collect(WeaponHolder wh) {
+        holders.Insert(wh.PieceWeapon.GetClassName(), wh.PieceMask);
+    }
+
+    void GiveWeaponHolders(PlayerPawn pawn) {
+        foreach(weap, mask : holders) {
+            let h = WeaponHolder(Actor.Spawn('WeaponHolder'));
+            class<Weapon> cls = weap;
+            h.PieceWeapon = cls;
+            h.PieceMask = mask;
+            if (!h.CallTryPickup(pawn))
+                h.Destroy();
+        }
+    }
+}
