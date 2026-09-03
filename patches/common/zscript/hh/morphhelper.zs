@@ -98,6 +98,11 @@ class HHMorphHelper play {
         HHWeaponTrackerGroup newWeaponTrackers = HHWeaponTrackerGroup(Actor.Spawn('HHWeaponTrackerGroup'));
         HHWeaponHolderTrackerGroup newWeaponPieceTrackers = HHWeaponHolderTrackerGroup(Actor.Spawn('HHWeaponHolderTrackerGroup'));
 
+        let newBasicArmor = BasicArmor(Actor.Spawn(Actor.GetBasicArmorClass()));
+        let newHexenArmor = HexenArmor(Actor.Spawn(Actor.GetHexenArmorClass()));
+        newPawn.AddInventory(newBasicArmor);
+        newPawn.AddInventory(newHexenArmor);
+
         // Copy old inventory
         for(let ii = oldPawn.Inv; ii != null; ii = ii.Inv) {
             String itype = ii.GetClassName();
@@ -119,15 +124,15 @@ class HHMorphHelper play {
                 continue;
             }
 
-            if (c is 'BasicArmor')
-                // TODO: Figure out armor
-                // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
+            if (c is 'BasicArmor') {
+                CopyBasicArmor(BasicArmor(ii), newBasicArmor);
                 continue;
+            }
 
-            if (c is 'HexenArmor')
-                // TODO: Figure out armor
-                // https://github.com/UZDoom/UZDoom/blob/trunk/wadsrc/static/zscript/actors/inventory/armor.zs
+            if (c is 'HexenArmor') {
+                CopyHexenArmor(newPawn, HexenArmor(ii), newHexenArmor);
                 continue;
+            }
 
             // Restore Trackers
             if (c is 'HHWeaponTrackerGroup')
@@ -168,6 +173,28 @@ class HHMorphHelper play {
                     ScriptUtil.SetWeapon(newPawn, di.Name);
                 }
             }
+        }
+    }
+
+    static void CopyBasicArmor(BasicArmor oldArmor, BasicArmor newArmor) {
+        newArmor.SavePercent      = oldArmor.SavePercent;
+        newArmor.Amount           = oldArmor.Amount;
+        newArmor.MaxAbsorb        = oldArmor.MaxAbsorb;
+        newArmor.Icon             = oldArmor.Icon;
+        newArmor.BonusCount       = oldArmor.BonusCount;
+        newArmor.ArmorType        = oldArmor.ArmorType;
+        newArmor.ActualSaveAmount = oldArmor.ActualSaveAmount;
+        newArmor.MaxAllowedAmount = oldArmor.MaxAllowedAmount;
+        newArmor.bAltSemantics    = oldArmor.bAltSemantics;
+        newArmor.AbsorbCount      = oldArmor.AbsorbCount;
+        newArmor.MaxFullAbsorb    = oldArmor.MaxFullAbsorb;
+    }
+
+    static void CopyHexenArmor(PlayerPawn p, HexenArmor oldArmor, HexenArmor newArmor) {
+        newArmor.Slots[4] = p.HexenArmor[0];
+        for (int i = 0; i < 4; i++) {
+            newArmor.SlotsIncrement[i] = p.HexenArmor[i+1];
+            newArmor.Slots[i] = oldArmor.Slots[i] * newArmor.SlotsIncrement[i] / oldArmor.SlotsIncrement[i];
         }
     }
 }
