@@ -139,7 +139,7 @@ class HHMorphHelper play {
                 newWeaponTrackers.ImportTrackers(HHWeaponTrackerGroup(ii));
             if (c is 'HHWeaponHolderTrackerGroup')
                 newWeaponPieceTrackers.ImportTrackers(HHWeaponHolderTrackerGroup(ii));
-            if (c is 'HHTrackerBase')
+            if (c is 'HHHelperBase')
                 continue;
 
             newPawn.GiveInventory(itype, ii.Amount);
@@ -199,16 +199,7 @@ class HHMorphHelper play {
     }
 }
 
-class HHTrackerBase : Inventory {
-    Default {
-        +INVENTORY.QUIET
-        +INVENTORY.UNDROPPABLE
-        +INVENTORY.PERSISTENTPOWER
-        +INVENTORY.KEEPDEPLETED
-    }
-}
-
-class HHWeaponTrackerGroup : HHTrackerBase {
+class HHWeaponTrackerGroup : HHHelperBase {
     Map<Name, HHWeaponTracker> trackers;
 
     void AddTracker(HHWeaponTracker wt) {
@@ -244,7 +235,7 @@ class HHWeaponTracker play {
     }
 }
 
-class HHWeaponHolderTrackerGroup : HHTrackerBase {
+class HHWeaponHolderTrackerGroup : HHHelperBase {
     Map<Name, HHWeaponHolderTracker> trackers;
 
     void AddTracker(HHWeaponHolderTracker wt) {
