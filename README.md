@@ -16,9 +16,10 @@ Notable differences include:
   - Tempest wand is implemented, but the damage may be off. Still it should serve as a suitable
     BFG type weapon.
 - Hexen
-  - Class changing is not supported. There is a ZScript level postprocessor and ACS library that can
-    be loaded to print messages when these specials are used/activated. They can be removed and the
-    specials will just do nothing instead.
+  - Class changing cycles between classes rather than bringing up a menu. **NOTE:** Picking up
+    alternate class weapons while as using the wrong class will not give you the appropriate
+    weapons when switching afterwards. You can avoid picking up the wrong class weapons by
+    using `sv_weaponstay`, but will no longer be able to pick up duplicate weapons for ammo.
 
 ## Usage
 
