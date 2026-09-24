@@ -1,0 +1,54 @@
+[enu eng default]
+intertext_hexnew_finale1        = "Korax is dead. Again. His shredded\ncorpse left behind, bereft of any\nsemblance of life that it may have\nhad. Rebirth has certainly taken its\ntoll on him, you think - this\nencounter with him was more difficult,\nyet his body more frail than previous\ntimes. Good riddance. His grip on\ncronos is once more released, and you\nbreathe a sigh of relief.";
+intertext_hexnew_finale2        = "Yet, a nagging, gnawing thought is\ngrowing in your mind. If this new\nritual of his was able to bring him\nback to this plane, then there must\nbe other forces at work enabling\nthe cycle to continue. Forces, you\nsurmise, that are outside of your\ncontrol, and are conspiring to keep\nthe struggle alive. An invisible\nhand puppeteering both him and you,\nweaving a star-crossed destiny that\nwill never die.";
+intertext_hexnew_finale3        = "\nAnd if that hand touches the board\nagain, then what surprises are yet\nin store for you?";
+
+[de]
+intertext_hexnew_finale1 = "Korax ist tot. Schon wieder. Sein\nzerfetzter Leichnam ist bar jeden\nLebens, das ihm vielleicht einmal\ninnewohnte. Die Wiedergeburt\nhat sichtbare Spuren hinterlassen,\nfindest du – euer Zusammenstoß war\ndieses Mal zwar deutlich schwieriger,\nsein Körper jedoch gebrechlicher als\nall die Male zuvor.\nAuf Nimmerwiedersehen.\nDu hast Cronos erneut von ihm befreit\nund stößt nun einen tiefen Seufzer der\nErleichterung aus.";
+intertext_hexnew_finale2 = "Und doch nagt ein Gedanke an dir. Wenn\nihn dieses neue Ritual zurück auf diese\nEbene bringen konnte, dann müssen\nandere Mächte am Werk sein, die den\newigen Kreislauf befeuern. Mächte, die\nsich wohl außerhalb deiner Kontrolle\nbefinden und sich miteinander\nverschworen haben, um den Konflikt\nweiter zu schüren. Die unsichtbare Hand\neines Marionettenspielers zupft an\neuren Fäden und verwebt euer beider\nSchicksal zu einem unausweichlichen\nNetz.";
+intertext_hexnew_finale3 = "Und was wird diese Hand für euch auf\nLager haben, wenn sie erneut das\nSpielbrett berührt?";
+
+[es]
+intertext_hexnew_finale1 = "Korax ha muerto. Otra vez. Su cadáver\ndespedazado ha perdido todo atisbo\nde vida que pudiera haber tenido.\nEl renacer ha hecho mella en él.\nEsta confrontación ha sido más ardua,\naunque su cuerpo parecía más frágil\nque en ocasiones anteriores.\nNo se le echará de menos. Su dominio\nsobre el tiempo se ha desvanecido\nuna vez más, y respiras aliviado.";
+intertext_hexnew_finale2 = "No obstante, un pensamiento inquietante\ny perturbador arraiga en tu mente.\nSi este nuevo ritual suyo fue capaz\nde traerlo de vuelta a esta dimensión,\ndeben de existir otras fuerzas en juego\nque permiten que continúe el ciclo.\nFuerzas, supones, que escapan\na tu control y confabulan para perpetuar\nel conflicto. Una mano invisible que\nos manipula como marionetas, tanto a él\ncomo a ti, urdiendo un sino funesto\nque nunca se extinguirá.";
+intertext_hexnew_finale3 = "\nY si esa mano vuelve a tocar\nel tablero, ¿qué designios\nte deparará el destino?";
+
+[esm]
+intertext_hexnew_finale1 = "Korax está muerto. Otra vez. Su cadáver\ndespedazado ha perdido todo atisbo\nde vida que pudiera haber tenido.\nEl renacer ha hecho estragos en él.\nEsta confrontación fue más ardua,\naunque su cuerpo parecía más frágil\nque en ocasiones anteriores.\nNo se lamentará su ausencia. Su dominio\nsobre el tiempo se ha desvanecido\nuna vez más, y respiras aliviado.";
+intertext_hexnew_finale2 = "No obstante, un pensamiento inquietante\ny perturbador se arraiga en tu mente.\nSi este nuevo ritual suyo fue capaz\nde traerlo de vuelta a esta dimensión,\ndeben de existir otras fuerzas en juego\nque permiten que continúe el ciclo.\nFuerzas, supones, que escapan\na tu control y confabulan para perpetuar\nel conflicto. Una mano invisible\nque los manipula como marionetas, tanto a él\ncomo a ti, urdiendo un destino funesto\nque nunca se extinguirá.";
+intertext_hexnew_finale3 = "\nY si esa mano vuelve a tocar el tablero,\n¿qué designios te deparará el destino?";
+
+[fr]
+intertext_hexnew_finale1 = "Korax est mort. À nouveau. Il ne reste\nplus de lui qu'un corps déchiqueté et\nméconnaissable. Il semblerait qu'il y\nait un prix à payer pour la\nrésurrection. Cet affrontement a été\nplus rude que les précédents.\nToutefois, il est évident que son\ncorps n'était devenu rien de plus\nqu'une coquille fragile. Bon débarras.\nVous êtes soulagé à l'idée que Cronos\nsoit à nouveau délivré de son emprise.";
+intertext_hexnew_finale2 = "Pourtant, une troublante pensée vous\nobsède. Si ce nouveau rituel est\nparvenu à le ramener dans cette\ndimension, il ne fait aucun doute\nqu'une force extérieure s'évertue à\nfaire perdurer ce cycle sans fin. Une\nforce qui, comme vous l'imaginez,\néchappe à votre contrôle, bien décidée\nà entretenir le conflit par tous les\nmoyens. Une main invisible qui vous\nmanipule tous les deux en vous\ncondamnant à une destinée aussi\nmaudite qu'inéluctable.";
+intertext_hexnew_finale3 = "\nEt lorsque cette main mettra la suite\nde son plan à exécution, quelles\nsurprises vous attendront alors ?";
+
+[it]
+intertext_hexnew_finale1 = "Korax è morto. Di nuovo. Di lui non\nresta che il suo cadavere martoriato,\nprivo di qualsiasi parvenza di vita che\npossa averlo animato. La rinascita gli\nha certamente lasciato il segno: questo\nscontro con lui è stato più difficile,\nma il suo corpo era più fragile rispetto\nalle volte scorse. Che liberazione. La\nsua morsa su Crono si scioglie e puoi\ntirare un sospiro di sollievo.";
+intertext_hexnew_finale2 = "Tuttavia, un pensiero assillante e\ntormentoso si fa strada nella tua mente.\nSe questo suo nuovo rituale è stato in\ngrado di riportarlo su questo piano\ndell'esistenza, allora devono esserci\naltre forze all'opera che permettono al\nciclo di continuare. Forze, supponi, che\nsono al di fuori del tuo controllo e che\ncospirano per mantenere vivo il\nconflitto. Una mano invisibile che vi\nmanovra entrambi, tessendo un destino\nincrociato che non morirà mai.";
+intertext_hexnew_finale3 = "\nE, se quella mano toccasse nuovamente\nla scacchiera, quali sorprese ci\nsarebbero ancora in serbo per te?";
+
+[jp]
+intertext_hexnew_finale1 = "コラックスは死んだ。再び死んだのだ\nバラバラになった彼の死体は\n打ち捨てられた。かつてその身体に\n宿っていたであろう命の面影はもうない\n復活という行為は確かに彼に犠牲を\n負わせた。復活した彼と対決するなど\n困難極まりない、と思うだろう\nだが、彼の身体は以前よりも弱っていた\nしめた。彼の時間は再び進み始めていたのだ\nそうしてあなたは安堵のため息をついた";
+intertext_hexnew_finale2 = "しかし、ある考えが頭をよぎって\n仕方がない。新たな儀式が\n彼をこの次元に呼び戻すことが\nできるのだとしたら、このサイクルを絶やさんとする他の勢力が\n必ず存在するはずだ。勢力か…\n恐らく自分の力が及ばない者たちだろう\nそして、争いを終わらせまいと\n企てているに違いない\n見えざる手が彼とあなたの両方を操り\n決して切れることのない\n不幸な運命を紡いでいるのだ";
+intertext_hexnew_finale3 = "\nそして、その手が\n再び盤面に触れたとしたら、どんな驚きが\nあなたを待ち受けているのだろう？";
+
+[ko]
+intertext_hexnew_finale1 = "코락스는 다시 한번 죽었습니다. 갈기갈기 찢긴\n시신만이 남아 한때 생명이 깃들었던\n흔적조차 찾아볼 수 없습니다.\n확실히 환생이 코락스에게 타격을\n준 것 같다는 생각이 듭니다.\n이번 대결은 더 힘겨웠지만\n그의 몸은 이전보다 훨씬 연약했습니다.\n해치우니 속이 시원하군요. 그의 손아귀에서\n크로노스가 다시 한번 풀려났고\n당신은 안도의 한숨을 내쉽니다.";
+intertext_hexnew_finale2 = "하지만 잔소리처럼 속을 갉아먹는 생각이\n머릿속에서 자라나고 있습니다.\n코락스가 새로운 의식을 통해 \n이 차원으로 귀환할 수 있었다면\n이 순환을 이어가기 위해 또 다른 힘들이\n손을 쓰고 있는 것이 틀림없습니다.\n추측컨대 당신의 통제에서 벗어난 힘,\n싸움을 계속 유지하기 위해\n음모를 꾸미는 힘 말입니다.\n보이지 않는 손이 코락스와 당신 모두를\n조종하고 있으며, 절대 죽지 않을 불행한 운명을\n엮어내고 있습니다.";
+intertext_hexnew_finale3 = "\n그 손이 다시 한번 체스판에 개입한다면\n당신 앞에는 어떤 놀라운 일이\n기다리고 있을까요?";
+
+[pl]
+intertext_hexnew_finale1 = "Korax nie żyje. Znowu. Jego pocięte\nzwłoki porzucone, pozbawione jakiegokolwiek\nżycia, które w nich niegdyś było.\nMyślisz sobie, że odrodzenie\nsporo go kosztowało –\na to starcie z nim było jeszcze trudniejsze.\nJednak jego ciało było bardziej kruche niż\npoprzednio. Dobrze się stało. Jego uścisk\nna cronosie został znów zwolniony, a ty\noddychasz z ulgą.";
+intertext_hexnew_finale2 = "A jednak w głowie kołacze ci\nnieprzyjemna myśl. Jeśli ten nowy\nrytuał był w stanie przywrócić\ngo do tego wymiaru, muszą\nistnieć inne siły, które pozwalają\ncyklowi trwać. Siły, myślisz,\nktóre są poza twoją\nkontrolą, które spiskują, aby\nwalka trwała. Niewidzialna\nręka kieruje zarówno nim, jak i tobą,\ntkając gwiezdne przeznaczenie,\nktóre nigdy nie umrze.";
+intertext_hexnew_finale3 = "\nA jeśli ta ręka znów dotknie\nplanszy, jakie niespodzianki jeszcze\ncię czekają?";
+
+[pt ptg]
+intertext_hexnew_finale1 = "Korax morreu. De novo. O cadáver retalhado\ndele ficou para trás, sem mais nada\nparecido com a vida que tinha.\nRenascer exigiu muito dele, parece:\no confronto foi mais difícil, mas ele\nparecia estar mais frágil. Já vai tarde.\nO cronos está livre mais uma vez\ndo controle dele, e você pode respirar\naliviado.";
+intertext_hexnew_finale2 = "No entanto, uma ideia preocupante\nassola sua mente. Se esse ritual o\ntrouxe de volta a este plano, então\ndevem haver outras forças permitindo\na continuação do ciclo. Forças, ao\nque parece, fora do seu controle, sempre\nconspirando para manter a luta viva.\nUma mão invisível manipulando vocês\ndois, tramando um destino fadado a\njamais cessar.";
+intertext_hexnew_finale3 = "\nE se essa mão voltar a tocar o\ntabuleiro, que surpresas estarão\nà sua espera?";
+
+[ru]
+intertext_hexnew_finale1 = "Коракс убит. Вновь. В его разорванных\nостанках не рассмотреть и капли былого\nмогущества. Перерождение явно\nизменило его. Его тело ослабло, но вам\nкажется, что эта схватка всё же была\nтруднее, чем прошлые.\nТуда ему и дорога... Он вновь утратил\nвласть над Хроносом, и вы выдыхаете\nс облегчением.";
+intertext_hexnew_finale2 = "Но вас всё сильнее терзает зудящая\nв голове мысль. Раз этот новый ритуал\nпомог ему вернуться в наш мир,\nзначит, есть другие силы, чьими\nстараниями и повторяется этот цикл.\nСилы, над которыми вы не властны\nи которые не заинтересованы в окончании\nвашей войны. И вы, и ваш противник\nстали марионетками незримой руки,\nпредначертавшей удел, от которого\nнет никакого спасения.";
+intertext_hexnew_finale3 = "\nИ если эта рука вновь коснётся\nшахматной доски, кто знает, какие\nсюрпризы преподнесёт вам судьба?";
