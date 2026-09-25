@@ -35,7 +35,6 @@ cluster 1 {
 
 defaultmap {
     author = "Matt Tropiano"
-    sky1 = "SKY6"
     secretnext = "E1M9"
     cluster = 1
 }
@@ -45,7 +44,7 @@ map MAP01 "TEMPLE OUTSKIRTS" {
     music = "WINNOWR"
     cdtrack = 13
     sky1 = "SKYWALL", 0
-    sky2 = "SKY4", 4
+    sky2 = "SKY4", 0.25
     doublesky
 }
 
@@ -53,8 +52,8 @@ map MAP02 "SERPENT TEMPLE" {
     next = "MAP03"
     music = "CRYPTR"
     cdtrack = 2
-    sky1 = "SKY2", 4
-    sky2 = "SKY3", 4
+    sky1 = "SKY2", 0
+    sky2 = "SKY3", 0
     lightning
 }
 
@@ -62,8 +61,8 @@ map MAP03 "SWAMP OF THE FORGOTTEN" {
     next = "MAP04"
     music = "CHIPPYR"
     cdtrack = 22
-    sky1 = "SKYFOG2", 2
-    sky2 = "SKYFOG", 6
+    sky1 = "SKYFOG2", 0.125
+    sky2 = "SKYFOG", 0.375
     doublesky
     fadetable = "FOGMAP"
 }
@@ -73,7 +72,7 @@ map MAP04 "GLADE OF THE FALLEN" {
     music = "DEEPR"
     cdtrack = 15
     sky1 = "SKYWALL", 0
-    sky2 = "SKY1", 4
+    sky2 = "SKY1", 0.25
     doublesky
 }
 
@@ -82,14 +81,14 @@ map MAP05 "VOLCANO CHAPEL" {
     next = "MAP06"
     music = "GROVER"
     cdtrack = 9
-    sky1 = "SKY4", 2
+    sky1 = "SKY4", 0
 }
 
 map MAP06 "FROZEN SANCTUM" {
     next = "MAP07"
     music = "FUBASR"
     cdtrack = 21
-    sky1 = "SKYFOG3", 2
+    sky1 = "SKYFOG3", 0
 }
 
 map MAP07 "ELEMENTAL TEMPLE" {
@@ -106,7 +105,7 @@ map MAP08 "KORAX'S DOMAIN" {
     next = endsequence, "vog_end"
     music = "FORTR"
     cdtrack = 14
-    sky1 = "SKY4", 4
+    sky1 = "SKY4", 0
 }
 
 map MAP09 "GARDEN OF MEDEA" {
@@ -114,5 +113,5 @@ map MAP09 "GARDEN OF MEDEA" {
     next = "MAP01"
     music = "HALL"
     cdtrack = 6
-    sky1 = "SKYFOG3", 4
+    sky1 = "SKYFOG3", 0
 }
