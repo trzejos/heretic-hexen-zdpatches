@@ -46,7 +46,7 @@ The following sections contain the load order of files UZDoom needs to play diff
 - **`heretic.wad`**
 - `hh_patch_common.pk3`
 - `heretic_fr.wad`
-- `hh_patch_fr.pk3` - Only contains title graphics
+- `hh_patch_fr.pk3` - Title graphics and intermission scripts
 
 #### Hexen: KEX Edition
 
@@ -67,4 +67,4 @@ The following sections contain the load order of files UZDoom needs to play diff
 - **`hexen.wad`**
 - `hh_patch_common.pk3`
 - `hexen_vog.wad`
-- `hh_patch_vog.pk3` - Only contains title graphics
+- `hh_patch_vog.pk3` - Title graphics and intermission scripts

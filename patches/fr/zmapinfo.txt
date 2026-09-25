@@ -1,0 +1,85 @@
+clearepisodes
+episode E1M1 {
+    name = "Faith Renewed"
+    key = "f"
+}
+
+intermission "fr_end" {
+    TextScreen {
+        Background = "FLTCIST2", 1
+        Music = "MUS_CPTD"
+        Text = "$intertext_hereticnew_p1"
+    }
+    TextScreen {
+        Background = "FLTCIST2", 1
+        Music = "MUS_CPTD"
+        Text = "$intertext_hereticnew_p2"
+    }
+    TextScreen {
+        Background = "FLTCIST2", 1
+        Music = "MUS_CPTD"
+        Text = "$intertext_hereticnew_p3"
+    }
+    Image {
+        Background = "CREDIT", 0
+        Music = "MUS_CPTD"
+    }
+}
+
+defaultmap {
+    author = "Samuel 'Kaiser' Villarreal"
+    sky1 = "SKY6"
+    enterpic = "$IN_FR"
+    exitpic = "$IN_FR"
+    secretnext = "E1M9"
+}
+
+map E1M1 "The Plaza" {
+    next = "E1M2"
+    music = "MUS_E2M2"
+}
+
+map E1M2 "Staith Town" {
+    next = "E1M3"
+    music = "MUS_E1M2"
+}
+
+map E1M3 "Crimson Palace" {
+    next = "E1M4"
+    music = "MUS_E1M6"
+}
+
+map E1M4 "Watergate" {
+    next = "E1M5"
+    music = "MUS_E2M4"
+}
+
+map E1M5 "Correctional Temple" {
+    next = "E1M6"
+    music = "MUS_E1M3"
+}
+
+map E1M6 "Foundry" {
+    next = "E1M7"
+    music = "MUS_E2M1"
+}
+
+map E1M7 "Eye of D'Sparil" {
+    next = "E1M8"
+    music = "MUS_E2M8"
+}
+
+map E1M8 "The Grand Chapel" {
+    music = "MUS_E1M9"
+    next = endsequence, "fr_end"
+    SpecialAction_KillMonsters
+    SpecialAction = "Sorcerer2", "Floor_LowerToHighest", 666, 8, 128 // lower floor
+}
+
+map E1M9 "Pocket Plane" {
+    author = "Not Jabba"
+    next = "E1M7"
+    sky1 = "ALLBLACK"
+    music = "MUS_E1M8"
+    // gamemodeaction    = cooperative, 109, 107 // door open stay fast
+}
