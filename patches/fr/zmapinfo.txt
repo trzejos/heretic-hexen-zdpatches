@@ -8,17 +8,22 @@ intermission "fr_end" {
     TextScreen {
         Background = "FLTCIST2", 1
         Music = "MUS_CPTD"
-        Text = "$intertext_hereticnew"
+        Text = "$intertext_hereticnew_p1"
     }
-
-    Wiper {}
-
+    TextScreen {
+        Background = "FLTCIST2", 1
+        Music = "MUS_CPTD"
+        Text = "$intertext_hereticnew_p2"
+    }
+    TextScreen {
+        Background = "FLTCIST2", 1
+        Music = "MUS_CPTD"
+        Text = "$intertext_hereticnew_p3"
+    }
     Image {
-        Background = "CREDIT"
+        Background = "CREDIT", 0
         Music = "MUS_CPTD"
     }
-
-    GotoTitle {}
 }
 
 defaultmap {
@@ -27,7 +32,6 @@ defaultmap {
     enterpic = "$IN_FR"
     exitpic = "$IN_FR"
     secretnext = "E1M9"
-    intermission
 }
 
 map E1M1 "The Plaza" {
@@ -67,10 +71,7 @@ map E1M7 "Eye of D'Sparil" {
 
 map E1M8 "The Grand Chapel" {
     music = "MUS_E1M9"
-    //next = endpic, "CREDIT"
     next = endsequence, "fr_end"
-    nointermission
-    NeedClusterText
     SpecialAction_KillMonsters
     SpecialAction = "Sorcerer2", "Floor_LowerToHighest", 666, 8, 128 // lower floor
 }
