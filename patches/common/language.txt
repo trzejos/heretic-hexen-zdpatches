@@ -1,4 +1,4 @@
-[enu default]
+[enu eng default]
 FN_MUMMY2 = "Draugr";
 FN_TROLL = "Troll";
 FN_SUPERDEMON = "Chaos Serpent";
@@ -35,3 +35,165 @@ TXT_ARTIPUZZIDOL2 = "$$TAG_ARTIPUZZIDOL2";
 TXT_ARTIPUZZIDOL3 = "$$TAG_ARTIPUZZIDOL3";
 TXT_ARTIPUZZBOOK3 = "$$TAG_ARTIPUZZBOOK3";
 TXT_ARTIPUZZBOOK4 = "$$TAG_ARTIPUZZBOOK4";
+
+[de]
+TAG_WPNTEMPESTWAND = "Sturmstab";
+TAG_ARTIPUZZBOOK3 = "Schrecklicher Atlas";
+TAG_ARTIPUZZBOOK4 = "Malum Vulgata";
+TAG_ARTIPUZZCRESTDRAGON = "Drachenwappen";
+TAG_ARTIPUZZCRESTWOLF = "Wolfwappen";
+TAG_ARTIPUZZCRESTGRIFFIN = "Greifenwappen";
+TAG_ARTIPUZZMASKICE = "Todesmaske";
+TAG_ARTIPUZZMASKSWAMP = "Stinkende Maske";
+TAG_ARTIPUZZCHALICE1 = "Gewickelter Kelch";
+TAG_ARTIPUZZCHALICE2 = "Vergoldeter Kelch";
+TAG_ARTIPUZZCHALICE3 = "Irdener Kelch";
+TAG_ARTIPUZZCHALICE4 = "Geschmolzener Kelch";
+TAG_ARTIPUZZCHALICE5 = "Bereifter Kelch";
+TAG_ARTIPUZZIDOL1 = "Schädelgötze";
+TAG_ARTIPUZZIDOL2 = "Dämonengötze";
+TAG_ARTIPUZZIDOL3 = "Drachengötze";
+
+[es esm]
+TAG_WPNTEMPESTWAND = "Varita de la tempestad";
+TAG_ARTIPUZZBOOK3 = "Atlas truculento"
+TAG_ARTIPUZZBOOK4 = "Malum vulgata"
+TAG_ARTIPUZZCRESTDRAGON = "Blasón de dragón"
+TAG_ARTIPUZZCRESTWOLF = "Blasón de lobo"
+TAG_ARTIPUZZCRESTGRIFFIN = "Blasón de grifo"
+TAG_ARTIPUZZMASKICE = "Máscara de la muerte"
+TAG_ARTIPUZZMASKSWAMP = "Máscara fétida"
+TAG_ARTIPUZZCHALICE1 = "Cáliz enroscado"
+TAG_ARTIPUZZCHALICE2 = "Cáliz dorado"
+TAG_ARTIPUZZCHALICE3 = "Cáliz de arcilla"
+TAG_ARTIPUZZCHALICE4 = "Cáliz fundido"
+TAG_ARTIPUZZCHALICE5 = "Cáliz escarchado"
+TAG_ARTIPUZZIDOL1 = "Ídolo de calavera"
+TAG_ARTIPUZZIDOL2 = "Ídolo de demonio"
+TAG_ARTIPUZZIDOL3 = "Ídolo de dragón"
+
+[fr]
+TAG_WPNTEMPESTWAND = "Baguette de tempête";
+TAG_ARTIPUZZBOOK3 = "Atlas macabre"
+TAG_ARTIPUZZBOOK4 = "Malum Vulgata"
+TAG_ARTIPUZZCRESTDRAGON = "Emblème du dragon"
+TAG_ARTIPUZZCRESTWOLF = "Emblème du loup"
+TAG_ARTIPUZZCRESTGRIFFIN = "Emblème du griffon"
+TAG_ARTIPUZZMASKICE = "Masque de mort"
+TAG_ARTIPUZZMASKSWAMP = "Masque fétide"
+TAG_ARTIPUZZCHALICE1 = "Calice torsadé"
+TAG_ARTIPUZZCHALICE2 = "Calice doré"
+TAG_ARTIPUZZCHALICE3 = "Calice en céramique"
+TAG_ARTIPUZZCHALICE4 = "Calice fondu"
+TAG_ARTIPUZZCHALICE5 = "Calice cerclé"
+TAG_ARTIPUZZIDOL1 = "Crâne d'idole"
+TAG_ARTIPUZZIDOL2 = "Idole de démon"
+TAG_ARTIPUZZIDOL3 = "Idole de dragon"
+
+[it]
+TAG_WPNTEMPESTWAND = "Bacchetta della tempesta";
+TAG_ARTIPUZZBOOK3 = "Atlante raccapricciante"
+TAG_ARTIPUZZBOOK4 = "Malum Vulgatorum"
+TAG_ARTIPUZZCRESTDRAGON = "Stemma del drago"
+TAG_ARTIPUZZCRESTWOLF = "Stemma del lupo"
+TAG_ARTIPUZZCRESTGRIFFIN = "Stemma del grifone"
+TAG_ARTIPUZZMASKICE = "Maschera della morte"
+TAG_ARTIPUZZMASKSWAMP = "Maschera fetida"
+TAG_ARTIPUZZCHALICE1 = "Calice a spirale"
+TAG_ARTIPUZZCHALICE2 = "Calice dorato"
+TAG_ARTIPUZZCHALICE3 = "Calice in terracotta"
+TAG_ARTIPUZZCHALICE4 = "Calice fuso"
+TAG_ARTIPUZZCHALICE5 = "Calice brinato"
+TAG_ARTIPUZZIDOL1 = "Idolo del teschio"
+TAG_ARTIPUZZIDOL2 = "Idolo del demone"
+TAG_ARTIPUZZIDOL3 = "Idolo del drago"
+
+[jp]
+TAG_WPNTEMPESTWAND = "テンペストの杖";
+TAG_ARTIPUZZBOOK3 = "赤いアトラス"
+TAG_ARTIPUZZBOOK4 = "悪の聖典"
+TAG_ARTIPUZZCRESTDRAGON = "ドラゴンの紋章"
+TAG_ARTIPUZZCRESTWOLF = "ウルフの紋章"
+TAG_ARTIPUZZCRESTGRIFFIN = "グリフォンの紋章"
+TAG_ARTIPUZZMASKICE = "死神のマスク"
+TAG_ARTIPUZZMASKSWAMP = "悪臭のマスク"
+TAG_ARTIPUZZCHALICE1 = "とぐろの聖杯"
+TAG_ARTIPUZZCHALICE2 = "黄金の聖杯"
+TAG_ARTIPUZZCHALICE3 = "陶製の聖杯"
+TAG_ARTIPUZZCHALICE4 = "鋳造の聖杯"
+TAG_ARTIPUZZCHALICE5 = "白霜の聖杯"
+TAG_ARTIPUZZIDOL1 = "スカルの像"
+TAG_ARTIPUZZIDOL2 = "デーモンの像"
+TAG_ARTIPUZZIDOL3 = "ドラゴンの像"
+
+[ko]
+TAG_WPNTEMPESTWAND = "폭풍 완드";
+TAG_ARTIPUZZBOOK3 = "끔찍한 지도책"
+TAG_ARTIPUZZBOOK4 = "사악한 불가타성서"
+TAG_ARTIPUZZCRESTDRAGON = "용 문장"
+TAG_ARTIPUZZCRESTWOLF = "늑대 문장"
+TAG_ARTIPUZZCRESTGRIFFIN = "그리핀 문장"
+TAG_ARTIPUZZMASKICE = "죽음 가면"
+TAG_ARTIPUZZMASKSWAMP = "악취 가면"
+TAG_ARTIPUZZCHALICE1 = "코일형 성배"
+TAG_ARTIPUZZCHALICE2 = "금빛 성배"
+TAG_ARTIPUZZCHALICE3 = "토기 성배"
+TAG_ARTIPUZZCHALICE4 = "녹인 성배"
+TAG_ARTIPUZZCHALICE5 = "테두리가 있는 성배"
+TAG_ARTIPUZZIDOL1 = "두개골 성상"
+TAG_ARTIPUZZIDOL2 = "악마 성상"
+TAG_ARTIPUZZIDOL3 = "용 성상"
+
+[pl]
+TAG_WPNTEMPESTWAND = "Różdżka burzy";
+TAG_ARTIPUZZBOOK3 = "Krwawy atlas"
+TAG_ARTIPUZZBOOK4 = "Malum Vulgata"
+TAG_ARTIPUZZCRESTDRAGON = "Herb smoka"
+TAG_ARTIPUZZCRESTWOLF = "Herb wilka"
+TAG_ARTIPUZZCRESTGRIFFIN = "Herb gryfa"
+TAG_ARTIPUZZMASKICE = "Maska śmierci"
+TAG_ARTIPUZZMASKSWAMP = "Cuchnąca maska"
+TAG_ARTIPUZZCHALICE1 = "Zwinięty kielich"
+TAG_ARTIPUZZCHALICE2 = "Złocony kielich"
+TAG_ARTIPUZZCHALICE3 = "Ziemisty kielich"
+TAG_ARTIPUZZCHALICE4 = "Stopiony kielich"
+TAG_ARTIPUZZCHALICE5 = "Oszroniony kielich"
+TAG_ARTIPUZZIDOL1 = "Bożek czaszka"
+TAG_ARTIPUZZIDOL2 = "Bożek demon"
+TAG_ARTIPUZZIDOL3 = "Bożek smok"
+
+[pt ptg]
+TAG_WPNTEMPESTWAND = "Varinha da Tormenta";
+TAG_ARTIPUZZBOOK3 = "Atlas Apavorante"
+TAG_ARTIPUZZBOOK4 = "Malum Vulgata"
+TAG_ARTIPUZZCRESTDRAGON = "Brasão de Dragão"
+TAG_ARTIPUZZCRESTWOLF = "Brasão de Lobo"
+TAG_ARTIPUZZCRESTGRIFFIN = "Brasão de Grifo"
+TAG_ARTIPUZZMASKICE = "Máscara da Morte"
+TAG_ARTIPUZZMASKSWAMP = "Máscara Fétida"
+TAG_ARTIPUZZCHALICE1 = "Cálice Espiralado"
+TAG_ARTIPUZZCHALICE2 = "Cálice Dourado"
+TAG_ARTIPUZZCHALICE3 = "Cálice Terroso"
+TAG_ARTIPUZZCHALICE4 = "Cálice Derretido"
+TAG_ARTIPUZZCHALICE5 = "Cálice Gélido"
+TAG_ARTIPUZZIDOL1 = "Ídolo de Crânio"
+TAG_ARTIPUZZIDOL2 = "Ídolo de Demônio"
+TAG_ARTIPUZZIDOL3 = "Ídolo de Dragão"
+
+[ru]
+TAG_WPNTEMPESTWAND = "Жезл бури";
+TAG_ARTIPUZZBOOK3 = "Мрачный том"
+TAG_ARTIPUZZBOOK4 = "Зло обыкновенное"
+TAG_ARTIPUZZCRESTDRAGON = "Герб с драконом"
+TAG_ARTIPUZZCRESTWOLF = "Герб с волком"
+TAG_ARTIPUZZCRESTGRIFFIN = "Герб с грифоном"
+TAG_ARTIPUZZMASKICE = "Маска смерти"
+TAG_ARTIPUZZMASKSWAMP = "Зловонная маска"
+TAG_ARTIPUZZCHALICE1 = "Витая чаша"
+TAG_ARTIPUZZCHALICE2 = "Позолоченная чаша"
+TAG_ARTIPUZZCHALICE3 = "Земная чаша"
+TAG_ARTIPUZZCHALICE4 = "Расплавленная чаша"
+TAG_ARTIPUZZCHALICE5 = "Морозная чаша"
+TAG_ARTIPUZZIDOL1 = "Идол-череп"
+TAG_ARTIPUZZIDOL2 = "Идол-демон"
+TAG_ARTIPUZZIDOL3 = "Идол-дракон"
