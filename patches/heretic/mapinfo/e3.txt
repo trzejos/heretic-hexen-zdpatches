@@ -1,0 +1,67 @@
+adddefaultmap {
+    sky1 = "SKY3"
+    cluster = 3
+    secretnext = "E3M9"
+    enterpic = "$IN_E3"
+    exitpic = "$IN_E3"
+}
+
+map E3M1 lookup "HHUSTR_E3M1"
+{
+	next = "E3M2"
+	music = "MUS_E1M1"
+}
+
+map E3M2 lookup "HHUSTR_E3M2"
+{
+	next = "E3M3"
+	music = "MUS_E3M2"
+}
+
+map E3M3 lookup "HHUSTR_E3M3"
+{
+	next = "E3M4"
+	music = "MUS_E3M3"
+}
+
+map E3M4 lookup "HHUSTR_E3M4"
+{
+	next = "E3M5"
+	music = "MUS_E1M6"
+}
+
+map E3M5 lookup "HHUSTR_E3M5"
+{
+	next = "E3M6"
+	music = "MUS_E1M3"
+}
+
+map E3M6 lookup "HHUSTR_E3M6"
+{
+	next = "E3M7"
+	music = "MUS_E1M2"
+}
+
+map E3M7 lookup "HHUSTR_E3M7"
+{
+	next = "E3M8"
+	music = "MUS_E1M5"
+}
+
+map E3M8 lookup "HHUSTR_E3M8"
+{
+	next = "EndDemon"
+	music = "MUS_E1M9"
+	nointermission
+	dsparilspecial
+	specialaction_lowerfloortohighest
+	specialaction_killmonsters
+	needclustertext
+}
+
+map E3M9 lookup "HHUSTR_E3M9"
+{
+	next = "E3M5"
+	secretnext = "E3M5"
+	music = "MUS_E2M6"
+}
