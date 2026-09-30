@@ -3,7 +3,6 @@ adddefaultmap {
     cluster = 2
     secretnext = "E2M9"
     enterpic = "$IN_E2"
-    exitpic = "$IN_E2"
 }
 
 map E2M1 lookup "HHUSTR_E2M1"

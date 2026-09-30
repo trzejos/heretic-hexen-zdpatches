@@ -1,5 +1,4 @@
-defaultmap {
-    author = "Raven Software"
+adddefaultmap {
     sky1 = "SKY1"
     cluster = 6
 }

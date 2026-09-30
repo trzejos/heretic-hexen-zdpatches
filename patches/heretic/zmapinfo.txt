@@ -2,9 +2,9 @@ defaultmap {
     author = "Raven Software"
 }
 
+include "mapinfo/e6.txt"
 include "mapinfo/e1.txt"
 include "mapinfo/e2.txt"
 include "mapinfo/e3.txt"
 include "mapinfo/e4.txt"
 include "mapinfo/e5.txt"
-include "mapinfo/e6.txt"
