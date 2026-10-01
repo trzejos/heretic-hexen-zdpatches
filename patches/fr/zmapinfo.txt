@@ -30,7 +30,6 @@ defaultmap {
     author = "Samuel 'Kaiser' Villarreal"
     sky1 = "SKY6"
     enterpic = "$IN_FR"
-    exitpic = "$IN_FR"
     secretnext = "E1M9"
 }
 

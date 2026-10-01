@@ -1,0 +1,26 @@
+adddefaultmap {
+    sky1 = "SKY1"
+    cluster = 6
+}
+
+map E6M1 "Raven's Lair"
+{
+	next = "E6M2"
+	secretnext = "E6M2"
+	music = "MUS_E3M2"
+}
+
+map E6M2 "The Water Shrine"
+{
+	next = "E6M3"
+	secretnext = "E6M3"
+	music = "MUS_E3M3"
+}
+
+map E6M3 "American's Legacy"
+{
+    author = "American McGee"
+	next = "E6M1"
+	secretnext = "E6M1"
+	music = "MUS_E1M6"
+}
